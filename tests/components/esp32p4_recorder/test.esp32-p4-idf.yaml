@@ -1,0 +1,15 @@
+esphome:
+  name: test-p4-recorder
+
+esp32:
+  variant: esp32p4
+  engineering_sample: true
+  framework:
+    type: esp-idf
+
+external_components:
+  - source:
+      type: local
+      path: ../../../components
+
+<<: !include common.yaml

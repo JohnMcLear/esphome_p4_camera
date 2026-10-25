@@ -1,0 +1,64 @@
+logger:
+
+i2c:
+  id: i2c_bus
+  sda: GPIO7
+  scl: GPIO8
+
+psram:
+  mode: hex
+  speed: 200MHz
+
+esp32p4_camera:
+  id: cam
+  name: Test camera
+  i2c_id: i2c_bus
+
+i2s_audio:
+  - id: i2s_mic
+    i2s_lrclk_pin: GPIO21
+    i2s_bclk_pin: GPIO20
+
+microphone:
+  - platform: i2s_audio
+    id: mic
+    i2s_audio_id: i2s_mic
+    adc_type: external
+    i2s_din_pin: GPIO23
+    bits_per_sample: 32bit
+    channel: left
+    sample_rate: 16000
+
+esp32p4_recorder:
+  id: rec
+  camera_id: cam
+  microphone:
+    microphone: mic
+    gain_factor: 2
+  sd_card:
+    clk_pin: GPIO43
+    cmd_pin: GPIO44
+    data_pins: [GPIO39]
+    frequency: 10MHz
+  mount_point: /sd
+  file_prefix: test
+  bitrate: 2000000
+  gop: 15
+  max_duration: 2min
+  on_start:
+    - logger.log:
+        format: "start %s"
+        args: [file.c_str()]
+  on_finished:
+    - if:
+        condition:
+          esp32p4_recorder.is_recording: rec
+        then:
+          - esp32p4_recorder.stop: rec
+
+interval:
+  - interval: 1h
+    then:
+      - esp32p4_recorder.start:
+          id: rec
+          duration: !lambda return 30000;

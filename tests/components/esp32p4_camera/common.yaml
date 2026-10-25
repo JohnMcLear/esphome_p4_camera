@@ -1,0 +1,17 @@
+i2c:
+  id: i2c_bus
+  sda: GPIO7
+  scl: GPIO8
+
+psram:
+  mode: hex
+  speed: 200MHz
+
+esp32p4_camera:
+  name: Test camera
+  i2c_id: i2c_bus
+  sensors: [sc2336, ov5647]
+  reset_pin: GPIO26
+  jpeg_quality: 50
+  max_framerate: 5 fps
+  idle_framerate: 0 fps

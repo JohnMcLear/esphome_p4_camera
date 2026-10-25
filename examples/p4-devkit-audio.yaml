@@ -1,0 +1,49 @@
+# Mic and talk-back on the Waveshare P4 dev kit, using stock ESPHome components only.
+# Wiring of the Waveshare dev kit audio parts:
+#   mic: I2S MEMS (INMP441 class), BCLK 20, WS 21, DOUT -> GPIO23, SEL to GND (left slot), 32-bit
+#   talk-back: on-board ES8311 + NS4150B amp, MCLK 13, BCLK 12, WS 10, DOUT 9, PA enable GPIO53
+# Needs the i2c bus "bus_a" from the main file (the ES8311 shares it with the camera).
+i2s_audio:
+  - id: i2s_mic
+    i2s_lrclk_pin: GPIO21
+    i2s_bclk_pin: GPIO20
+  - id: i2s_codec
+    i2s_lrclk_pin: GPIO10
+    i2s_bclk_pin: GPIO12
+    i2s_mclk_pin: GPIO13
+
+microphone:
+  - platform: i2s_audio
+    id: door_mic
+    i2s_audio_id: i2s_mic
+    adc_type: external
+    i2s_din_pin: GPIO23
+    pdm: false
+    bits_per_sample: 32bit
+    channel: left
+    sample_rate: 16000
+
+audio_dac:
+  - platform: es8311
+    id: codec
+    i2c_id: bus_a
+    use_mclk: true
+    sample_rate: 16000
+
+speaker:
+  - platform: i2s_audio
+    id: door_speaker
+    i2s_audio_id: i2s_codec
+    audio_dac: codec
+    dac_type: external
+    i2s_dout_pin: GPIO9
+    sample_rate: 16000
+    bits_per_sample: 16bit
+    channel: stereo
+
+switch:
+  - platform: gpio
+    id: amp_enable
+    name: Speaker amp
+    pin: GPIO53
+    restore_mode: ALWAYS_ON

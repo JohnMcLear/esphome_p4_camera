@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff==0.16.0 clang-format==13.0.1
+      - run: ruff format --check components
+      - run: ruff check components
+      - run: clang-format --dry-run --Werror components/*/*.cpp components/*/*.h tests/host/*.cpp
+
+  muxer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: tests/host/run.sh
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        esphome: ["2026.7.0", "2026.10.0"]
+        config:
+          - tests/components/esp32p4_camera/test.esp32-p4-idf.yaml
+          - tests/components/esp32p4_recorder/test.esp32-p4-idf.yaml
+          - examples/waveshare-p4-devkit.yaml
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install esphome==${{ matrix.esphome }}
+      - name: Placeholder secrets
+        run: |
+          printf 'wifi_ssid: "ci"\nwifi_password: "ci-password"\n' > examples/secrets.yaml
+      - run: esphome compile ${{ matrix.config }}
