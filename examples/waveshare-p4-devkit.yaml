@@ -1,5 +1,5 @@
 # Waveshare ESP32-P4-Module-DEV-KIT (P4 rev 1.3) with an SC2336 or OV5647 on the MIPI-CSI port.
-# Pins are the ones used by the ESP-IDF build this component is ported from.
+# Pins follow the dev kit's own wiring.
 esphome:
   name: p4-camera
 
@@ -36,7 +36,7 @@ esp32_hosted:            # Wi-Fi through the on-board ESP32-C6 over SDIO
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  power_save_mode: none   # power save froze the live view (c84bed7)
+  power_save_mode: none   # power save froze the live view
 
 logger:
 api:
