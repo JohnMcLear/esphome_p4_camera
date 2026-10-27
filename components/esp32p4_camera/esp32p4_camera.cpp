@@ -20,6 +20,12 @@
 #include "esp_video_init.h"
 #include "esp_video_ioctl.h"
 
+// From esp_video_isp_pipeline.h, which cannot be included here: it pulls in esp_ipa.h, a private
+// requirement of esp_video. Status is esp_video_isp_pipeline_agc_status_t: 0 disables AGC, 1 enables it.
+extern "C" esp_err_t esp_video_isp_pipeline_set_agc_status(int status);
+static constexpr int ISP_AGC_DISABLE = 0;
+static constexpr int ISP_AGC_ENABLE = 1;
+
 #include "esphome/core/application.h"
 #include "esphome/core/log.h"
 
@@ -65,7 +71,9 @@ void ESP32P4Camera::setup() {
     return;
   }
 
-  size_t uyvy_size = (OUT_W * OUT_H * 2 + 127) & ~size_t(127);
+  // With stills enabled the UYVY buffer holds a full frame; the decimated path uses its start.
+  const size_t uyvy_px = this->still_quality_ ? size_t(SRC_W) * SRC_H : size_t(OUT_W) * OUT_H;
+  size_t uyvy_size = (uyvy_px * 2 + 127) & ~size_t(127);
   this->uyvy_ = static_cast<uint8_t *>(heap_caps_aligned_calloc(128, 1, uyvy_size, MALLOC_CAP_SPIRAM | MALLOC_CAP_DMA));
   jpeg_encode_engine_cfg_t ecfg = {.intr_priority = 0, .timeout_ms = 200};
   jpeg_encode_memory_alloc_cfg_t mcfg = {.buffer_direction = JPEG_ENC_ALLOC_OUTPUT_BUFFER};
@@ -74,7 +82,8 @@ void ESP32P4Camera::setup() {
     return;
   }
   for (auto &buf : this->jpeg_buf_) {
-    buf = static_cast<uint8_t *>(jpeg_alloc_encoder_mem(JPEG_MAX, &mcfg, &this->jpeg_buf_size_));
+    buf = static_cast<uint8_t *>(
+        jpeg_alloc_encoder_mem(this->still_quality_ ? STILL_JPEG_MAX : JPEG_MAX, &mcfg, &this->jpeg_buf_size_));
     if (buf == nullptr) {
       this->mark_failed(LOG_STR("JPEG buffer allocation failed"));
       return;
@@ -227,6 +236,7 @@ void ESP32P4Camera::capture_loop_() {
       if (slot >= 0) {
         this->jpeg_src_ = this->cap_buf_[cap.index];
         this->jpeg_slot_ = slot;
+        this->jpeg_still_ = this->still_quality_ && this->still_pending_.exchange(false);
         this->jpeg_idle_ = false;
         xTaskNotifyGive(this->jpeg_task_);
         last_jpeg_us = now;
@@ -251,21 +261,29 @@ void ESP32P4Camera::jpeg_task(void *arg) { static_cast<ESP32P4Camera *>(arg)->jp
 
 void ESP32P4Camera::jpeg_loop_() {
   jpeg_encode_cfg_t jcfg{};
-  jcfg.height = OUT_H;
-  jcfg.width = OUT_W;
   jcfg.src_type = JPEG_ENCODE_IN_FORMAT_YUV422;  // UYVY
-  jcfg.sub_sample = JPEG_DOWN_SAMPLING_YUV422;   // MCU 16x8: 360 is a multiple of 8, not 16
-  jcfg.image_quality = this->jpeg_quality_;
+  jcfg.sub_sample = JPEG_DOWN_SAMPLING_YUV422;   // MCU 16x8: 360 and 1080 are multiples of 8, not 16
 
   for (;;) {
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     const uint8_t slot = this->jpeg_slot_;
-    this->decimate3_(this->jpeg_src_);
+    const bool still = this->jpeg_still_;
+    if (still) {
+      this->convert_full_(this->jpeg_src_);
+      jcfg.width = SRC_W;
+      jcfg.height = SRC_H;
+      jcfg.image_quality = this->still_quality_;
+    } else {
+      this->decimate3_(this->jpeg_src_);
+      jcfg.width = OUT_W;
+      jcfg.height = OUT_H;
+      jcfg.image_quality = this->jpeg_quality_;
+    }
     xSemaphoreGive(this->decimate_done_);  // the capture buffer may go back to the sensor now
 
     uint32_t out_len = 0;
-    esp_err_t err = jpeg_encoder_process(this->jpeg_, &jcfg, this->uyvy_, OUT_W * OUT_H * 2, this->jpeg_buf_[slot],
-                                         this->jpeg_buf_size_, &out_len);
+    esp_err_t err = jpeg_encoder_process(this->jpeg_, &jcfg, this->uyvy_, jcfg.width * jcfg.height * 2,
+                                         this->jpeg_buf_[slot], this->jpeg_buf_size_, &out_len);
     if (err != ESP_OK || out_len == 0) {
       this->encode_errors_++;
     } else {
@@ -302,6 +320,35 @@ void ESP32P4Camera::decimate3_(const uint8_t *src) {
       ob[1] = pb[1];
       ob[2] = v;
       ob[3] = pb[5];
+      oa += 4;
+      ob += 4;
+    }
+  }
+}
+
+/* Same source layout as decimate3_, every row and pixel kept: rows 2r (U line) and 2r+1 (V line) share
+ * their chroma, as in the decimated path. A full frame is ~3 MB read and ~4 MB written, so the JPEG task
+ * holds the capture buffer for longer; stills are rare and the capture loop has buffers to spare. */
+void ESP32P4Camera::convert_full_(const uint8_t *src) {
+  const int stride = SRC_W * 3 / 2;
+  esp_cache_msync((void *) src, stride * SRC_H, ESP_CACHE_MSYNC_FLAG_DIR_M2C);
+  for (int r = 0; r < SRC_H; r += 2) {
+    const uint8_t *a = src + r * stride;
+    const uint8_t *b = a + stride;
+    uint8_t *oa = this->uyvy_ + r * SRC_W * 2;
+    uint8_t *ob = oa + SRC_W * 2;
+    for (int k = 0; k < SRC_W / 2; k++) {
+      uint8_t u = a[0], v = b[0];
+      oa[0] = u;
+      oa[1] = a[1];
+      oa[2] = v;
+      oa[3] = a[2];
+      ob[0] = u;
+      ob[1] = b[1];
+      ob[2] = v;
+      ob[3] = b[2];
+      a += 3;
+      b += 3;
       oa += 4;
       ob += 4;
     }
@@ -360,6 +407,24 @@ void ESP32P4Camera::loop() {
   this->single_requesters_ = 0;
 }
 
+void ESP32P4Camera::capture_still() {
+  if (this->still_quality_ == 0) {
+    ESP_LOGW(TAG, "capture_still ignored: set still_jpeg_quality to enable stills");
+    return;
+  }
+  this->still_pending_ = true;
+}
+
+bool ESP32P4Camera::set_exposure_lock(bool locked) {
+  esp_err_t err = esp_video_isp_pipeline_set_agc_status(locked ? ISP_AGC_DISABLE : ISP_AGC_ENABLE);
+  if (err != ESP_OK) {
+    ESP_LOGW(TAG, "Exposure %s failed: %s", locked ? "lock" : "unlock", esp_err_to_name(err));
+    return false;
+  }
+  ESP_LOGD(TAG, "Exposure %s", locked ? "locked" : "unlocked");
+  return true;
+}
+
 void ESP32P4Camera::request_image(camera::CameraRequester requester) { this->single_requesters_ |= (1U << requester); }
 
 void ESP32P4Camera::start_stream(camera::CameraRequester requester) {
@@ -379,9 +444,11 @@ void ESP32P4Camera::dump_config() {
                 "ESP32-P4 camera:\n"
                 "  Sensor: %s\n"
                 "  Capture: %" PRIu32 "x%" PRIu32 " YUV420, output %ux%u JPEG q%u\n"
-                "  Max interval: %" PRIu32 " ms, idle interval: %" PRIu32 " ms",
+                "  Max interval: %" PRIu32 " ms, idle interval: %" PRIu32 " ms\n"
+                "  Stills: %s, q%u",
                 this->sensor_name_, this->width_, this->height_, OUT_W, OUT_H, this->jpeg_quality_,
-                this->max_update_interval_, this->idle_update_interval_);
+                this->max_update_interval_, this->idle_update_interval_, this->still_quality_ ? "1920x1080" : "off",
+                this->still_quality_);
 }
 
 /* ---------------- image reader ---------------- */

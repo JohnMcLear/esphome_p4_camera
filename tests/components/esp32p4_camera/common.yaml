@@ -15,3 +15,17 @@ esp32p4_camera:
   jpeg_quality: 50
   max_framerate: 5 fps
   idle_framerate: 0 fps
+  still_jpeg_quality: 90
+
+button:
+  - platform: template
+    name: Still
+    on_press:
+      - esp32p4_camera.set_exposure_lock:
+          locked: true
+      - esp32p4_camera.capture_still
+  - platform: template
+    name: Unlock exposure
+    on_press:
+      - esp32p4_camera.set_exposure_lock:
+          locked: false

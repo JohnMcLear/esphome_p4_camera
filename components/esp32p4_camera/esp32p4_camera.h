@@ -14,6 +14,7 @@
 
 #include "esphome/components/camera/camera.h"
 #include "esphome/components/i2c/i2c_bus.h"
+#include "esphome/core/automation.h"
 #include "esphome/core/component.h"
 
 namespace esphome::esp32p4_camera {
@@ -29,6 +30,8 @@ static constexpr uint8_t CAPTURE_BUFFERS = 5;
 /// Two JPEG slots: one can be held by API or web clients while the next is encoded.
 static constexpr uint8_t JPEG_SLOTS = 2;
 static constexpr size_t JPEG_MAX = 256 * 1024;
+/// A full-frame still (1920x1080, no decimation) at high quality needs a larger slot.
+static constexpr size_t STILL_JPEG_MAX = 1024 * 1024;
 
 /** Receives every captured frame, on the capture task, before the buffer goes back to the sensor.
  *  The frame is 1920x1080 P4 ISP YUV420 (the layout the hardware H.264 encoder takes). The buffer
@@ -79,10 +82,17 @@ class ESP32P4Camera final : public camera::Camera {
   void set_jpeg_quality(uint8_t quality) { this->jpeg_quality_ = quality; }
   void set_max_update_interval(uint32_t ms) { this->max_update_interval_ = ms; }
   void set_idle_update_interval(uint32_t ms) { this->idle_update_interval_ = ms; }
+  /// Non-zero enables full-frame stills (and allocates the larger buffers they need).
+  void set_still_jpeg_quality(uint8_t quality) { this->still_quality_ = quality; }
   /// Register before setup(). Called on the capture task for every frame.
   void add_frame_listener(FrameListener *listener) { this->frame_listeners_.push_back(listener); }
   uint32_t get_width() const { return this->width_; }
   uint32_t get_height() const { return this->height_; }
+
+  /// The next image delivered to any requester is the full sensor frame, not the decimated one.
+  void capture_still();
+  /// Freezes (true) or resumes (false) the ISP's auto exposure and gain. Returns false if the ISP refused.
+  bool set_exposure_lock(bool locked);
 
   void setup() override;
   void loop() override;
@@ -104,6 +114,7 @@ class ESP32P4Camera final : public camera::Camera {
   void capture_loop_();
   void jpeg_loop_();
   void decimate3_(const uint8_t *src);
+  void convert_full_(const uint8_t *src);
 
   i2c::InternalI2CBus *i2c_bus_{nullptr};
   int8_t reset_pin_{-1};
@@ -112,6 +123,7 @@ class ESP32P4Camera final : public camera::Camera {
   uint8_t jpeg_quality_{40};
   uint32_t max_update_interval_{100};
   uint32_t idle_update_interval_{10000};
+  uint8_t still_quality_{0};
 
   int cap_fd_{-1};
   uint8_t *cap_buf_[CAPTURE_BUFFERS]{};
@@ -131,6 +143,9 @@ class ESP32P4Camera final : public camera::Camera {
   /// Capture -> JPEG hand-off: source buffer and target slot, valid while jpeg_idle_ is false.
   const uint8_t *jpeg_src_{nullptr};
   uint8_t jpeg_slot_{0};
+  bool jpeg_still_{false};
+  /// Set by capture_still(), taken by the capture task when it starts the next JPEG.
+  std::atomic<bool> still_pending_{false};
   std::atomic<bool> jpeg_idle_{true};
   /// Given by the JPEG task once it has finished reading the capture buffer.
   SemaphoreHandle_t decimate_done_{nullptr};
@@ -149,6 +164,17 @@ class ESP32P4Camera final : public camera::Camera {
   std::atomic<uint32_t> captured_{0};
   std::atomic<uint32_t> drained_{0};
   std::atomic<uint32_t> encode_errors_{0};
+};
+
+template<typename... Ts> class CaptureStillAction : public Action<Ts...>, public Parented<ESP32P4Camera> {
+ public:
+  void play(const Ts &...x) override { this->parent_->capture_still(); }
+};
+
+template<typename... Ts> class ExposureLockAction : public Action<Ts...>, public Parented<ESP32P4Camera> {
+ public:
+  TEMPLATABLE_VALUE(bool, locked)
+  void play(const Ts &...x) override { this->parent_->set_exposure_lock(this->locked_.value(x...)); }
 };
 
 }  // namespace esphome::esp32p4_camera

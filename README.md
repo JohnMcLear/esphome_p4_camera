@@ -65,6 +65,33 @@ repository next to your YAML to use it. Needs `psram:` and `esp32: variant: esp3
 A camera that does not answer at boot is meant to mark the component failed and leave the rest of
 the device running rather than boot-loop. That is by design and not yet shown on hardware.
 
+## Stills
+
+`still_jpeg_quality` enables full-frame stills: after `esp32p4_camera.capture_still`, the next image the
+camera delivers (to Home Assistant, the web server snapshot, or a stream) is the full 1920x1080 frame
+instead of the 640x360 one. It costs about 6 MB more PSRAM. Larger stills are not possible yet:
+`esp_cam_sensor` 2.6.0 has no full-sensor mode for either sensor (OV5647 tops out at a 1920x1080 crop).
+
+`esp32p4_camera.set_exposure_lock` freezes the ISP's auto exposure and gain so a burst of stills, a
+focus sweep for instance, all share one exposure. `esp_video` 2.5.0 has no runtime AWB lock; for
+fixed white balance, use an `ipa_json` with fixed gains.
+
+```yaml
+esp32p4_camera:
+  # ...
+  still_jpeg_quality: 90
+
+button:
+  - platform: template
+    name: Still
+    on_press:
+      - esp32p4_camera.set_exposure_lock:
+          locked: true
+      - esp32p4_camera.capture_still
+```
+
+Then take a snapshot as usual (`camera.snapshot` in Home Assistant). Untested on hardware, like the rest.
+
 ## Recorder
 
 ```yaml
