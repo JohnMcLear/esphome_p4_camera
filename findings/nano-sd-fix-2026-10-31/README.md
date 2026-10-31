@@ -27,5 +27,10 @@ Rates look card-limited (the same ~600-650 kB/s whatever the clock), so 10 MHz c
 ## Result (`esphome_rec_serial.log`)
 Two 60 s clips, back to back: rec-0002.mp4 28,289,554 bytes (1669 frames, 27.8 fps) and rec-0003.mp4 28,066,740 bytes,
 0 stalls, **0 write errors**, 0 encode errors. Numbering now advances.
-**Not yet shown:** that the files play (ffprobe frame count, A/V). They are on the card; the ESPHome build has no file
-endpoint, so the card has to come out, or an HTTP file list gets added.
+**Playback (card read on the PC, 16:15):** both play. rec-0002: H.264 1920x1080, 1669 frames decoded (matches the
+recorder's count), 60.07 s video, AAC 16 kHz mono 60.16 s, 3.76 Mbit/s; rec-0003: 1659 frames, 59.64 / 59.71 s.
+Container DTS strictly increasing, largest frame gap 75 ms (no stalls). ffmpeg's null muxer prints ~9 "non monotonically
+increasing dts" warnings per clip when it rescales the timestamps; the file's own DTS has no repeats, so worth a look
+at the mux timescale, not a playback fault. Audio is silent (-91 dB): no mic is fitted on this Nano.
+Clips (frames may show John) are in ~/yondoor_private/nano-sd-fix-2026-10-31/, not here.
+Note: the card is a Raspberry Pi boot card; FATFS mounted its 512 MB bootfs partition, which is now 77% full.
