@@ -1,0 +1,55 @@
+INFO ESPHome 2026.10.0
+INFO Reading configuration p4-nano-camera.yaml...
+WARNING 400MHz on ESP32-P4 is experimental and may not boot. Consider using 360MHz instead. See https://github.com/esphome/esphome/issues/13425
+WARNING 400MHz on ESP32-P4 is experimental and may not boot. Consider using 360MHz instead. See https://github.com/esphome/esphome/issues/13425
+INFO Generating C++ source...
+INFO Setting CONFIG_LWIP_MAX_SOCKETS to 13 (TCP=7 [api=3, esp32_camera_web_server=4], UDP=2 [mdns=2], TCP_LISTEN=4 [api=1, esp32_camera_web_server=2, ota=1])
+INFO Compiling app... Build path: /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera
+INFO Checking ESP-IDF 5.5.6 framework ...
+INFO Checking ESP-IDF 5.5.6 framework installation ...
+INFO Checking ESP-IDF 5.5.6 Python environment ...
+INFO Serving IDF components from the local mirror at /home/jose/.cache/esphome/idf/component_mirror
+INFO Build configuration is up to date
+INFO Compiling with a precompiled header (set ESPHOME_PCH_ENABLE=0 to disable)
+[0/2] Re-checking globbed directories...[1/10] Performing build step for 'bootloader'[1/1] cd /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/bootloader/esp-idf/esptool_py && /home/jose/.cache/esphome/idf/penvs/5.5.6/bin/python /home/jose/.cache/esphome/idf/frameworks/5.5.6/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x2000 /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/bootloader/bootloader.bin
+Bootloader binary size 0x5b60 bytes. 0x4a0 bytes (5%) free.
+[2/10] No install step for 'bootloader'[3/10] Completed 'bootloader'[4/10] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/build_info_data.cpp.obj[5/10] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32p4_recorder/esp32p4_recorder.cpp.obj[6/10] Linking C static library esp-idf/src/libsrc.a[7/10] Linking CXX executable p4-nano-camera.elf
+warning:  cannot assign memory region sram_seg to chip memory type
+[7/10] cd /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build && /usr/bin/cmake -D "IDF_SIZE_TOOL=/home/jose/.cache/esphome/idf/penvs/5.5.6/bin/python;-m;esp_idf_size" -D MAP_FILE=/home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/p4-nano-camera.map -D OUTPUT_JSON= -P /home/jose/.cache/esphome/idf/frameworks/5.5.6/tools/cmake/run_size_tool.cmake
+warning:  cannot assign memory region sram_seg to chip memory type
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Memory Type/Section ┃ Used [bytes] ┃ Used [%] ┃ Remain [bytes] ┃ Total [bytes] ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ Flash               │      1118874 │          │                │               │
+│    .text            │       780186 │          │                │               │
+│    .rodata          │       338160 │          │                │               │
+│    .init_array      │          272 │          │                │               │
+│    .appdesc         │          256 │          │                │               │
+│ DIRAM               │        95186 │    14.52 │         560174 │        655360 │
+│    .text            │        61074 │     9.32 │                │               │
+│    .bss             │        23944 │     3.65 │                │               │
+│    .data            │        10008 │     1.53 │                │               │
+│    .noinit          │          160 │     0.02 │                │               │
+│ HP core RAM         │          570 │     6.96 │           7622 │          8192 │
+│    .text            │          498 │     6.08 │                │               │
+│    .data            │           72 │     0.88 │                │               │
+│ LP RAM              │           24 │     0.07 │          32744 │         32768 │
+│    .rtc_reserved    │           24 │     0.07 │                │               │
+└─────────────────────┴──────────────┴──────────┴────────────────┴───────────────┘
+Total image size: 1190254 bytes (.bin may be padded larger)
+[8/10] Generating binary image from built executable
+esptool.py v4.12.0
+Creating esp32p4 image...
+Merged 2 ELF sections
+Successfully created esp32p4 image.
+Generated /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/p4-nano-camera.bin
+[9/10] cd /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/esp-idf/esptool_py && /home/jose/.cache/esphome/idf/penvs/5.5.6/bin/python /home/jose/.cache/esphome/idf/frameworks/5.5.6/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/partition_table/partition-table.bin /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/p4-nano-camera.bin
+p4-nano-camera.bin binary size 0x122b00 bytes. Smallest app partition is 0x1c0000 bytes. 0x9d500 bytes (35%) free.
+RAM:   [=         ]  14.5% (used 95186 bytes from 655360 bytes)
+Flash: [======    ]  64.9% (used 1190254 bytes from 1835008 bytes)
+INFO Creating factory.bin...
+INFO Created: /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/firmware.factory.bin
+INFO Created: /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/firmware.ota.bin
+INFO Created: /home/jose/doorplan/bench/p4-nano/.esphome/build/p4-nano-camera/build/firmware.elf
+INFO Build Info: config_hash=0x491e7997 build_time_str=2026-10-31 14:03:40 +0000
+INFO Successfully compiled program.

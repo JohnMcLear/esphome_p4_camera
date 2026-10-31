@@ -1,0 +1,138 @@
+_web_server:249][1;31m[httpd][0;36m: MJPG: 8.6fps, 22396B/frame (42 frames)[0m
+[0;32m[I][esp32_camera_web_server:259][1;31m[httpd][0;32m: STREAM: closed. Frames: 86[0m
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (25) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (27) boot: chip revision: v3.2
+I (27) boot.esp32p4: SPI Speed      : 80MHz
+I (27) boot.esp32p4: SPI Mode       : DIO
+I (29) boot.esp32p4: SPI Flash Size : 4MB
+I (33) boot: Partition Table:
+I (35) boot: ## Label            Usage          Type ST Offset   Length
+I (42) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (48) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (55) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (61) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (68) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (77) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=521b0h (336304) map
+I (135) esp_image: segment 1: paddr=000621d8 vaddr=30100000 size=001f4h (   500) load
+I (136) esp_image: segment 2: paddr=000623d4 vaddr=30100200 size=00048h (    72) load
+I (140) esp_image: segment 3: paddr=00062424 vaddr=4ff20000 size=0dbf4h ( 56308) load
+I (157) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be3d4h (779220) map
+I (278) esp_image: segment 5: paddr=0012e3fc vaddr=4ff2dbf4 size=012a0h (  4768) load
+I (281) esp_image: segment 6: paddr=0012f6a4 vaddr=4ff2ef00 size=02718h ( 10008) load
+I (288) boot: Loaded app from partition at offset 0x10000
+[0;32m[I][logger:136]: Log initialized[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 0[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2146ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[0;36m[D][esp32p4_recorder:608]: AAC encoder open, largest internal block now 81920 B[0m
+[0;32m[I][app:130]: setup() finished successfully![0m
+[0;33m[W][component:290]: wifi set Warning flag: scanning for networks[0m
+[0;32m[I][app:164]: ESPHome version 2026.10.0 compiled on 2026-10-31 13:58:24 +0000[0m
+[0;32m[I][app:171]: ESP32 Chip: ESP32-P4 rev3.2, 2 core(s)[0m
+[0;35m[C][logger:218]: Logger:
+  Max Level: DEBUG
+  Initial Level: DEBUG[0m
+[0;35m[C][logger:225]:   Log Baud Rate: 115200
+  Hardware UART: UART0[0m
+[0;35m[C][logger:234]:   Task Log Buffer Size: 768 bytes[0m
+[0;35m[C][logger:240]:   Level for 'esp-idf': WARN[0m
+[0;35m[C][i2c:092]: I2C Bus:[0m
+[0;35m[C][i2c:093]:   SDA Pin: GPIO7
+  SCL Pin: GPIO8
+  Frequency: 100000 Hz[0m
+[0;35m[C][i2c:103]:   Recovery: bus successfully recovered[0m
+[0;35m[C][i2c:113]: Results from bus scan:[0m
+[0;35m[C][i2c:119]: Found device at address 0x18[0m
+[0;35m[C][i2c:119]: Found device at address 0x30[0m
+[0;35m[C][switch.gpio:086]: GPIO Switch 'Speaker amp'
+  Restore Mode: always ON[0m
+[0;35m[C][switch.gpio:131]:   Pin: GPIO53[0m
+[0;35m[C][template.binary_sensor:016]: Template Binary Sensor 'Recording'[0m
+[0;35m[C][i2s_audio.microphone:053]: Microphone:
+  Pin: 23
+  PDM: NO
+  DC offset correction: NO[0m
+[0;35m[C][es8311:052]: ES8311 Audio Codec:
+  Use MCLK: YES
+  Use Microphone: NO
+  DAC Bits per Sample: 16
+  Sample Rate: 16000[0m
+[0;35m[C][psram:015]: PSRAM:[0m
+[0;35m[C][psram:018]:   Available: YES[0m
+[0;35m[C][psram:020]:   Size: 32768 KB[0m
+[0;35m[C][esp32p4_camera:443]: ESP32-P4 camera:
+  Sensor: MIPI-CSI
+  Capture: 1920x1080 YUV420, output 640x360 JPEG q40
+  Max interval: 100 ms, idle interval: 10000 ms
+  Stills: off, q0[0m
+[0;35m[C][i2s_audio.speaker:056]: Speaker:
+  Pin: 9
+  Buffer duration: 500[0m
+[0;35m[C][i2s_audio.speaker:062]:   Timeout: 500 ms[0m
+[0;35m[C][i2s_audio.speaker.std:067]:   Communication format: std[0m
+[0;35m[C][i2s_audio.speaker.std:072]:   Slot bit width: 16[0m
+[0;35m[C][network:050]: Network:
+  TCP send buffer: 5760 bytes[0m
+[0;35m[C][wifi:1688]: WiFi:
+  Local MAC: 80:F1:B2:D7:F5:0B
+  Connected: NO[0m
+[0;35m[C][esphome.ota:129]: Over-The-Air updates:
+  Address: p4-nano-camera.local:3232
+  Version: 2[0m
+[0;35m[C][safe_mode:058]: Safe Mode:
+  Successful after: 60s
+  Invoke after: 10 attempts
+  Duration: 300s[0m
+[0;35m[C][safe_mode:079]:   Bootloader rollback: support unknown[0m
+[0;35m[C][api:368]: Server:
+  Address: p4-nano-camera.local:6053
+  Listen backlog: 4
+  Max connections: 5[0m
+[0;35m[C][api:380]:   Noise encryption: NO[0m
+[0;35m[C][esp32p4_recorder:747]: ESP32-P4 recorder:
+  Mount point: /sdcard, file prefix: rec
+  SD slot 0, 4-bit, 20000 kHz, power LDO channel 4
+  H.264: 4000000 bit/s, QP 25-45, GOP 30, max 600 s[0m
+[0;35m[C][esp32p4_recorder:756]:   Audio: AAC-LC 16000 Hz mono, 32000 bit/s[0m
+[0;35m[C][esp32p4_recorder:761]:   Card: asdfg, 30000 MB[0m
+[0;35m[C][mdns:324]: mDNS:
+  Hostname: p4-nano-camera[0m
+[0;35m[C][esp32_camera_web_server:091]: ESP32 Camera Web Server:
+  Port: 8080[0m
+[0;35m[C][esp32_camera_web_server:096]:   Mode: stream[0m
+[0;35m[C][esp32_camera_web_server:091]: ESP32 Camera Web Server:
+  Port: 8081[0m
+[0;35m[C][esp32_camera_web_server:098]:   Mode: snapshot[0m
+[0;36m[D][wifi:1617]: Found networks:[0m
+[0;32m[I][wifi:1588]: - '<ssid>' [8m(AC:8B:A9:84:6C:A0) [28m[0;33m▂▄[0;37m▆█[0m Ch: 6 -75dB P:0[0m
+[0;32m[I][wifi:1588]: - '<ssid>' [8m(9C:05:D6:A7:D8:BA) [28m[0;33m▂▄[0;37m▆█[0m Ch: 1 -82dB P:0[0m
+[0;36m[D][wifi:2010]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING[0m
+[0;32m[I][wifi:1250]: Connecting to [8m'<ssid>'[28m [8m(AC:8B:A9:84:6C:A0)[28m (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...[0m
+[0;33m[W][component:419]: wifi took a long time for an operation (72 ms), max is 50 ms[0m
+[0;32m[I][wifi:1732]: Connected[0m
+[0;35m[C][wifi:1392]:   IP Address: 10.0.0.147[0m
+[0;35m[C][wifi:1403]:   SSID: [8m'<ssid>'[28m
+  BSSID: [8mAC:8B:A9:84:6C:A0[28m
+  Hostname: 'p4-nano-camera'
+  Signal strength: -80 dB [0;33m▂▄[0;37m▆█[0m
+  Channel: 6
+  Subnet: 255.0.0.0
+  Gateway: 10.0.0.253
+  DNS1: 10.0.0.253
+  DNS2: 0.0.0.0[0m
+[0;33m[W][component:419]: wifi took a long time for an operation (148 ms), max is 80 ms[0m
+[0;33m[W][component:313]: wifi cleared Warning flag[0m

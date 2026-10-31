@@ -1,0 +1,29 @@
+INFO ESPHome 2026.10.0
+INFO Loaded validated config cache for p4-camera.yaml, skipping validation.
+esptool v5.4.0
+Serial port /dev/ttyACM0:
+Connecting...
+Connected to ESP32-P4 on /dev/ttyACM0:
+Chip type:          ESP32-P4 (revision v1.3)
+Features:           Dual Core + LP Core, 400MHz
+Crystal frequency:  40MHz
+USB mode:           USB-Serial/JTAG
+MAC:                e8:f6:0a:e3:9c:b3
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+Auto-detected flash size: 16MB
+Flash will be erased from 0x00000000 to 0x0012dfff...
+Compressed 1233680 bytes to 648178...
+Writing at 0x00010c82 ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   2.5% 16.00kB/632.99kB [0s] Writing at 0x0001fa0c ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━   5.1% 32.00kB/632.99kB [0s] Writing at 0x0002e7d4 ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━   7.6% 48.00kB/632.99kB [1s] Writing at 0x0003bdda ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━  10.1% 64.00kB/632.99kB [2s] Writing at 0x0004c222 ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━  12.6% 80.00kB/632.99kB [2s] Writing at 0x00054a1a ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━  15.2% 96.00kB/632.99kB [3s] Writing at 0x0005ca1d ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━  17.7% 112.00kB/632.99kB [4s] Writing at 0x000645d6 ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━  20.2% 128.00kB/632.99kB [4s] Writing at 0x0006a64d ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━  22.7% 144.00kB/632.99kB [4s] Writing at 0x000705d4 ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━  25.3% 160.00kB/632.99kB [5s] Writing at 0x000765e5 ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━  27.8% 176.00kB/632.99kB [5s] Writing at 0x0007d9c0 ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━  30.3% 192.00kB/632.99kB [5s] Writing at 0x00085aac ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━  32.9% 208.00kB/632.99kB [5s] Writing at 0x0008d273 ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━  35.4% 224.00kB/632.99kB [5s] Writing at 0x00092e42 ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━  37.9% 240.00kB/632.99kB [5s] Writing at 0x00098872 ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━  40.4% 256.00kB/632.99kB [6s] Writing at 0x0009e38f ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━  43.0% 272.00kB/632.99kB [6s] Writing at 0x000a4452 ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━  45.5% 288.00kB/632.99kB [6s] Writing at 0x000a99a8 ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━  48.0% 304.00kB/632.99kB [6s] Writing at 0x000aedc8 ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━  50.6% 320.00kB/632.99kB [6s] Writing at 0x000b4124 ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━  53.1% 336.00kB/632.99kB [6s] Writing at 0x000ba706 ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━  55.6% 352.00kB/632.99kB [6s] Writing at 0x000c1d87 ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━  58.1% 368.00kB/632.99kB [6s] Writing at 0x000c922b ━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━  60.7% 384.00kB/632.99kB [6s] Writing at 0x000cfae0 ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━  63.2% 400.00kB/632.99kB [7s] Writing at 0x000d6ddf ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━  65.7% 416.00kB/632.99kB [7s] Writing at 0x000dd333 ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━  68.2% 432.00kB/632.99kB [7s] Writing at 0x000e3f57 ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━  70.8% 448.00kB/632.99kB [7s] Writing at 0x000ea08a ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━  73.3% 464.00kB/632.99kB [7s] Writing at 0x000f0519 ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━  75.8% 480.00kB/632.99kB [7s] Writing at 0x000f68de ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━  78.4% 496.00kB/632.99kB [7s] Writing at 0x000fcdef ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━  80.9% 512.00kB/632.99kB [7s] Writing at 0x00103aa8 ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━  83.4% 528.00kB/632.99kB [7s] Writing at 0x00109b08 ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━  85.9% 544.00kB/632.99kB [8s] Writing at 0x0010f983 ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━  88.5% 560.00kB/632.99kB [8s] Writing at 0x0011585b ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━  91.0% 576.00kB/632.99kB [8s] Writing at 0x0011bec6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━  93.5% 592.00kB/632.99kB [8s] Writing at 0x00121e76 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━  96.1% 608.00kB/632.99kB [8s] Writing at 0x001288c0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸  98.6% 624.00kB/632.99kB [8s] Writing at 0x0012d310 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.0% 632.99kB/632.99kB [8s] 
+Wrote 1233680 bytes (648178 compressed) at 0x00000000 in 8.8 seconds (1121.4 kbit/s).
+Verifying written data...
+Hash of data verified.
+
+Hard resetting via RTS pin...
+INFO Successfully uploaded program.

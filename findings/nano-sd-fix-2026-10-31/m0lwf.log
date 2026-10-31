@@ -1,0 +1,177 @@
+15:10:59.636 PC: reset, mode=m0lwf
+15:10:59.686 ESP-ROM:esp32p4-eco7-20260109
+15:10:59.686 Build:Jan  9 2026
+15:10:59.686 rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+15:10:59.686 SPI mode:DIO, clock div:1
+15:10:59.686 load:0x4ffb60d0,len:0x15e4
+15:10:59.686 load:0x4ffac2c0,len:0xe88
+15:10:59.686 load:0x4ffaefc0,len:0x3560
+15:10:59.686 entry 0x4ffac2ca
+15:10:59.686 I (25) boot: ESP-IDF v5.5.4 2nd stage bootloader
+15:10:59.686 I (26) boot: compile time Oct 31 2026 15:02:30
+15:10:59.786 I (26) boot: Multicore bootloader
+15:10:59.787 I (27) boot: chip revision: v3.2
+15:10:59.787 I (29) boot: efuse block revision: v1.2
+15:10:59.787 I (32) boot.esp32p4: SPI Speed      : 80MHz
+15:10:59.787 I (36) boot.esp32p4: SPI Mode       : DIO
+15:10:59.787 I (40) boot.esp32p4: SPI Flash Size : 16MB
+15:10:59.787 I (44) boot: Enabling RNG early entropy source...
+15:10:59.787 I (48) boot: Partition Table:
+15:10:59.787 I (51) boot: ## Label            Usage          Type ST Offset   Length
+15:10:59.787 I (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+15:10:59.787 I (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+15:10:59.787 I (70) boot:  2 factory          factory app      00 00 00010000 00177000
+15:10:59.787 I (78) boot: End of partition table
+15:10:59.787 I (80) esp_image: segment 0: paddr=00010020 vaddr=40080020 size=36418h (222232) map
+15:10:59.787 I (123) esp_image: segment 1: paddr=00046440 vaddr=30100000 size=00144h (   324) load
+15:10:59.887 I (124) esp_image: segment 2: paddr=0004658c vaddr=30100150 size=00048h (    72) load
+15:10:59.887 I (128) esp_image: segment 3: paddr=000465dc vaddr=4ff20000 size=09a3ch ( 39484) load
+15:10:59.887 I (142) esp_image: segment 4: paddr=00050020 vaddr=40000020 size=73348h (471880) map
+15:10:59.887 I (216) esp_image: segment 5: paddr=000c3370 vaddr=4ff29a3c size=0dbd8h ( 56280) load
+15:10:59.887 I (228) esp_image: segment 6: paddr=000d0f50 vaddr=4ff37680 size=035b0h ( 13744) load
+15:10:59.987 I (232) esp_image: segment 7: paddr=000d4508 vaddr=50108000 size=000d8h (   216) load
+15:10:59.987 I (233) esp_image: segment 8: paddr=000d45e8 vaddr=50108180 size=0000ch (    12) load
+15:10:59.987 I (244) boot: Loaded app from partition at offset 0x10000
+15:10:59.987 I (245) boot: Disabling RNG early entropy source...
+15:10:59.987 I (262) hex_psram: vendor id    : 0x0d (AP)
+15:10:59.987 I (262) hex_psram: Latency      : 0x01 (Fixed)
+15:10:59.987 I (262) hex_psram: DriveStr.    : 0x00 (25 Ohm)
+15:10:59.987 I (263) hex_psram: dev id       : 0x03 (generation 4)
+15:10:59.987 I (268) hex_psram: density      : 0x07 (256 Mbit)
+15:10:59.987 I (272) hex_psram: good-die     : 0x06 (Pass)
+15:10:59.987 I (276) hex_psram: SRF          : 0x02 (Slow Refresh)
+15:10:59.987 I (281) hex_psram: BurstType    : 0x00 ( Wrap)
+15:10:59.987 I (285) hex_psram: BurstLen     : 0x03 (2048 Byte)
+15:10:59.987 I (290) hex_psram: BitMode      : 0x01 (X16 Mode)
+15:10:59.987 I (294) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)
+15:10:59.987 I (299) hex_psram: DriveStrength: 0x00 (1/1)
+15:10:59.987 I (303) MSPI Timing: Enter psram timing tuning
+15:11:00.188 I (467) esp_psram: Found 32MB PSRAM device
+15:11:00.188 I (467) esp_psram: Speed: 200MHz
+15:11:00.188 I (467) hex_psram: psram CS IO is dedicated
+15:11:00.188 I (468) cpu_start: Multicore app
+15:11:01.089 I (1354) esp_psram: SPI SRAM memory test OK
+15:11:01.089 I (1364) cpu_start: GPIO 38 and 37 are used as console UART I/O pins
+15:11:01.089 I (1364) cpu_start: Pro cpu start user code
+15:11:01.089 I (1364) cpu_start: cpu freq: 400000000 Hz
+15:11:01.089 I (1367) app_init: Application information:
+15:11:01.089 I (1370) app_init: Project name:     yondoor_sd_coexist
+15:11:01.089 I (1375) app_init: App version:      1
+15:11:01.089 I (1379) app_init: Compile time:     Oct 31 2026 15:02:23
+15:11:01.089 I (1384) app_init: ELF file SHA256:  bf04b0f2d...
+15:11:01.089 I (1388) app_init: ESP-IDF:          v5.5.4
+15:11:01.089 I (1392) efuse_init: Min chip rev:     v3.0
+15:11:01.089 I (1396) efuse_init: Max chip rev:     v3.99 
+15:11:01.089 I (1400) efuse_init: Chip rev:         v3.2
+15:11:01.089 I (1404) heap_init: Initializing. RAM available for dynamic allocation:
+15:11:01.089 I (1411) heap_init: At 4FF41990 len 00079630 (485 KiB): RETENT_RAM
+15:11:01.089 I (1416) heap_init: At 4FFBAFC0 len 00004BF0 (18 KiB): RAM
+15:11:01.089 I (1422) heap_init: At 501080D8 len 00000028 (0 KiB): RTCRAM
+15:11:01.190 I (1427) heap_init: At 5010818C len 00007E74 (31 KiB): RTCRAM
+15:11:01.190 I (1432) heap_init: At 30100198 len 00001E68 (7 KiB): TCM
+15:11:01.190 I (1438) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator
+15:11:01.190 I (1445) spi_flash: detected chip: gd
+15:11:01.190 I (1448) spi_flash: flash io: dio
+15:11:01.190 I (1451) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+15:11:01.190 I (1457) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+15:11:01.190 I (1464) main_task: Started on CPU0
+15:11:01.190 I (1488) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+15:11:01.190 I (1489) main_task: Calling app_main()
+15:11:01.190 YD ident: chip model=18 rev=v3.2 mac=80:f1:b2:d7:f5:0b
+15:11:01.190 YD: send 'm<N>[l][r]' within 5 s
+15:11:01.439 PC: sent m0lwf
+15:11:01.791 YD MODE=0 ldo=1 rate=0 fast=1
+15:11:01.791 W (2124) ldo: The voltage value 0 is out of the recommended range [500, 2700]
+15:11:01.791 I (2125) yd: on-chip LDO4 for SD pads -> ESP_OK
+15:11:01.891 I (2171) yd: SDMMC slot0 mount (dummy_init=0) -> ESP_OK (46 ms)
+15:11:01.891 Name: SD
+15:11:01.891 Type: SDHC
+15:11:01.891 Speed: 40.00 MHz (limit: 40.00 MHz)
+15:11:01.891 Size: 29818MB
+15:11:01.891 CSD: ver=2, sector_size=512, capacity=61067264 read_bl_len=9
+15:11:01.891 SSR: bus_width=1
+15:11:01.891 I (2179) yd: opts: 1bit=1 slow=0 crawl=0 phase=-1
+15:11:01.891 I (2183) yd: SETUP_DONE mode=0 wifi_ok=0 sd_ok=1
+15:11:02.792 STAT t=1 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=482771
+15:11:03.794 STAT t=2 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=482771
+15:11:04.795 STAT t=3 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=482771
+15:11:05.396 I (5715) yd: RAW_READ bytes=16777216 secs=3.53 rate=4644 kB/s errs=0
+15:11:05.396 PHASE_START
+15:11:05.396 I (5716) yd: card total=509 MB free=150 MB, test cap=75 MB, rate=unlimited
+15:11:05.797 STAT t=4 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=475759
+15:11:06.798 STAT t=5 sd_kBps=512 sd_errs=0 http_kBps=0 writer=1 heap_int=475939
+15:11:07.800 STAT t=6 sd_kBps=960 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:08.802 STAT t=7 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:09.803 STAT t=8 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:10.805 STAT t=9 sd_kBps=448 sd_errs=0 http_kBps=0 writer=1 heap_int=475827
+15:11:11.806 STAT t=10 sd_kBps=96 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:12.808 STAT t=11 sd_kBps=224 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:13.809 STAT t=12 sd_kBps=384 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:14.811 STAT t=13 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:15.813 STAT t=14 sd_kBps=512 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:16.814 STAT t=15 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:17.816 STAT t=16 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:18.817 STAT t=17 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:19.819 STAT t=18 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:20.820 STAT t=19 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:21.822 STAT t=20 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:22.824 STAT t=21 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:23.825 STAT t=22 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:24.827 STAT t=23 sd_kBps=128 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:25.828 STAT t=24 sd_kBps=96 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:26.830 STAT t=25 sd_kBps=320 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:27.832 STAT t=26 sd_kBps=384 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:28.834 STAT t=27 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:29.835 STAT t=28 sd_kBps=704 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:30.837 STAT t=29 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:31.839 STAT t=30 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:32.840 STAT t=31 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:33.842 STAT t=32 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:34.844 STAT t=33 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:35.845 STAT t=34 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:36.847 STAT t=35 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:37.848 STAT t=36 sd_kBps=608 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:38.850 STAT t=37 sd_kBps=96 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:39.852 STAT t=38 sd_kBps=192 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:40.853 STAT t=39 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:41.855 STAT t=40 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:42.857 STAT t=41 sd_kBps=384 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:43.858 STAT t=42 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:44.860 STAT t=43 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:45.862 STAT t=44 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:46.863 STAT t=45 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:47.865 STAT t=46 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:48.866 STAT t=47 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:49.868 STAT t=48 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:50.869 STAT t=49 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:51.871 STAT t=50 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:52.872 STAT t=51 sd_kBps=96 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:53.774 STAT t=52 sd_kBps=256 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:54.775 STAT t=53 sd_kBps=352 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:55.777 STAT t=54 sd_kBps=384 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:56.778 STAT t=55 sd_kBps=608 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:11:57.780 STAT t=56 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:58.782 STAT t=57 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:11:59.783 STAT t=58 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:00.785 STAT t=59 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:01.786 STAT t=60 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:12:02.788 STAT t=61 sd_kBps=928 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:03.789 STAT t=62 sd_kBps=896 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:04.791 STAT t=63 sd_kBps=800 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:05.793 STAT t=64 sd_kBps=96 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:12:06.394 I (66658) yd: WRITE_DONE bytes=40796160 secs=60.1 avg=663 kB/s errs=0
+15:12:06.794 STAT t=65 sd_kBps=64 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:07.796 STAT t=66 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:08.798 STAT t=67 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:09.799 STAT t=68 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:10.801 STAT t=69 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:11.802 STAT t=70 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:12.804 STAT t=71 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:13.805 STAT t=72 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:14.807 STAT t=73 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:15.808 STAT t=74 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:16.810 STAT t=75 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:17.811 STAT t=76 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:18.813 STAT t=77 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:19.815 STAT t=78 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=471167
+15:12:20.670 PC: done

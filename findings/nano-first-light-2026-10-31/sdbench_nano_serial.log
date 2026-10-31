@@ -1,0 +1,510 @@
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (25) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (27) boot: chip revision: v3.2
+I (27) boot.esp32p4: SPI Speed      : 80MHz
+I (27) boot.esp32p4: SPI Mode       : DIO
+I (29) boot.esp32p4: SPI Flash Size : 4MB
+I (33) boot: Partition Table:
+I (35) boot: ## Label            Usage          Type ST Offset   Length
+I (42) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (48) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (55) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (61) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (68) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (77) boot: No factory image, trying OTA 0
+I (79) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=52be0h (338912) map
+I (139) esp_image: segment 1: paddr=00062c08 vaddr=30100000 size=001f4h (   500) load
+I (141) esp_image: segment 2: paddr=00062e04 vaddr=30100200 size=00048h (    72) load
+I (144) esp_image: segment 3: paddr=00062e54 vaddr=4ff20000 size=0d1c4h ( 53700) load
+I (161) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be9bch (780732) map
+I (282) esp_image: segment 5: paddr=0012e9e4 vaddr=4ff2d1c4 size=01cd0h (  7376) load
+I (285) esp_image: segment 6: paddr=001306bc vaddr=4ff2ef00 size=02718h ( 10008) load
+I (292) boot: Loaded app from partition at offset 0x10000
+I (320) boot: Set actual ota_seq=1 in otadata[0]
+[0;32m[I][logger:136]: Log initialized[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 1[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2146ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+E (8792) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (8792) task_wdt:  - loopTask (CPU 1)
+E (8792) task_wdt: Tasks currently running:
+E (8792) task_wdt: CPU 0: IDLE0
+E (8792) task_wdt: CPU 1: IDLE1
+E (8792) task_wdt: Aborting.
+E (8792) task_wdt: Print CPU 1 registers
+
+
+Core  1 register dump:
+MEPC    : 0x4ff23f02  RA      : 0x4ff23ef0  SP      : 0x4ff5b890  GP      : 0x4ff2f700  
+TP      : 0x4ff5b8e0  T0      : 0x00000000  T1      : 0x4ff23bb4  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x4ff37000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x00000000  A5      : 0x3ff06000  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000000  S3      : 0x4ff31000  
+S4      : 0x4ff37000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00000000  MTVEC   : 0x4ff37000  MCAUSE  : 0x00000000  MTVAL   : 0x400bbed8  
+MHARTID : 0x00000000  
+
+Stack memory:
+4ff5b890: 0x00000000 0x4ff37000 0x00000000 0x400bbed8 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8d0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000000 0x4ff5b30c 0x4ff5b30c 0x00000000
+4ff5b8f0: 0x00000000 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000158
+4ff5b910: 0x4ff5b810 0x00000000 0x4ff317e8 0x4ff5b1b4 0x4ff5b910 0x4ff317e0 0x00000019 0x00000000
+4ff5b930: 0x00000000 0x4ff5b910 0x00000000 0x00000000 0x4ff5b30c 0x454c4449 0x00000031 0x00000000
+4ff5b950: 0x00000000 0x00000001 0x4ff5b900 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b970: 0x4ff37de4 0x4ff37e4c 0x4ff37eb4 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+4ff5b990: 0x00000000 0x4000826a 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba50: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00020000 0x00000800 0xa5a5a5a5
+4ff5ba70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5ba90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bab0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bad0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5baf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: 0feca35f3
+
+Rebooting...
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4007b0a6
+Core1 Saved PC:0x4ff20664
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (33) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (34) boot: chip revision: v3.2
+I (34) boot.esp32p4: SPI Speed      : 80MHz
+I (35) boot.esp32p4: SPI Mode       : DIO
+I (37) boot.esp32p4: SPI Flash Size : 4MB
+I (41) boot: Partition Table:
+I (43) boot: ## Label            Usage          Type ST Offset   Length
+I (49) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (56) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (62) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (69) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (75) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (84) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=52be0h (338912) map
+I (135) esp_image: segment 1: paddr=00062c08 vaddr=30100000 size=001f4h (   500) load
+I (136) esp_image: segment 2: paddr=00062e04 vaddr=30100200 size=00048h (    72) load
+I (140) esp_image: segment 3: paddr=00062e54 vaddr=4ff20000 size=0d1c4h ( 53700) load
+I (155) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be9bch (780732) map
+I (260) esp_image: segment 5: paddr=0012e9e4 vaddr=4ff2d1c4 size=01cd0h (  7376) load
+I (262) esp_image: segment 6: paddr=001306bc vaddr=4ff2ef00 size=02718h ( 10008) load
+I (269) boot: Loaded app from partition at offset 0x10000
+[0;32m[I][logger:136]: Log initialized[0m
+[1;31m[E][esp32.crash:436]: *** CRASH DETECTED ON PREVIOUS BOOT ***[0m
+[1;31m[E][esp32.crash:441]:   Reason: Task wdt[0m
+[1;31m[E][esp32.crash:443]:   Crashed core: 1[0m
+[1;31m[E][esp32.crash:450]:   PC:  0x4FF23F02  (fault location)[0m
+[1;31m[E][esp32.crash:359]:   BT0: 0x4FF23F02  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT1: 0x4FF23EF0  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT2: 0x400BBED8  (stack scan)[0m
+[1;31m[E][esp32.crash:475]: Use: addr2line -pfiaC -e firmware.elf 0x4FF23F02 0x4FF23F02 0x4FF23EF0 0x400BBED8[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 2[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2128ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+E (8801) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (8801) task_wdt:  - loopTask (CPU 1)
+E (8801) task_wdt: Tasks currently running:
+E (8801) task_wdt: CPU 0: IDLE0
+E (8801) task_wdt: CPU 1: IDLE1
+E (8801) task_wdt: Aborting.
+E (8801) task_wdt: Print CPU 1 registers
+
+
+Core  1 register dump:
+MEPC    : 0x4ff23f02  RA      : 0x4ff23ef0  SP      : 0x4ff5b890  GP      : 0x4ff2f700  
+TP      : 0x4ff5b8e0  T0      : 0x00000000  T1      : 0x4ff23bb4  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x4ff37000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x00000000  A5      : 0x3ff06000  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000000  S3      : 0x4ff31000  
+S4      : 0x4ff37000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00000000  MTVEC   : 0x4ff37000  MCAUSE  : 0x00000000  MTVAL   : 0x400bbed8  
+MHARTID : 0x00000000  
+
+Stack memory:
+4ff5b890: 0x00000000 0x4ff37000 0x00000000 0x400bbed8 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8d0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000000 0x4ff5b30c 0x4ff5b30c 0x00000000
+4ff5b8f0: 0x00000000 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000158
+4ff5b910: 0x4ff5b810 0x00000000 0x4ff317e8 0x4ff5b1b4 0x4ff5b910 0x4ff317e0 0x00000019 0x00000000
+4ff5b930: 0x00000000 0x4ff5b910 0x00000000 0x00000000 0x4ff5b30c 0x454c4449 0x00000031 0x00000000
+4ff5b950: 0x00000000 0x00000001 0x4ff5b900 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b970: 0x4ff37de4 0x4ff37e4c 0x4ff37eb4 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+4ff5b990: 0x00000000 0x4000826a 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba50: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00020000 0x00000800 0xa5a5a5a5
+4ff5ba70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5ba90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bab0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bad0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5baf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: 0feca35f3
+
+Rebooting...
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4007b0a6
+Core1 Saved PC:0x4ff20664
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (33) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (34) boot: chip revision: v3.2
+I (34) boot.esp32p4: SPI Speed      : 80MHz
+I (35) boot.esp32p4: SPI Mode       : DIO
+I (37) boot.esp32p4: SPI Flash Size : 4MB
+I (41) boot: Partition Table:
+I (43) boot: ## Label            Usage          Type ST Offset   Length
+I (49) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (56) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (62) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (69) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (75) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (84) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=52be0h (338912) map
+I (135) esp_image: segment 1: paddr=00062c08 vaddr=30100000 size=001f4h (   500) load
+I (136) esp_image: segment 2: paddr=00062e04 vaddr=30100200 size=00048h (    72) load
+I (140) esp_image: segment 3: paddr=00062e54 vaddr=4ff20000 size=0d1c4h ( 53700) load
+I (155) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be9bch (780732) map
+I (260) esp_image: segment 5: paddr=0012e9e4 vaddr=4ff2d1c4 size=01cd0h (  7376) load
+I (262) esp_image: segment 6: paddr=001306bc vaddr=4ff2ef00 size=02718h ( 10008) load
+I (269) boot: Loaded app from partition at offset 0x10000
+[0;32m[I][logger:136]: Log initialized[0m
+[1;31m[E][esp32.crash:436]: *** CRASH DETECTED ON PREVIOUS BOOT ***[0m
+[1;31m[E][esp32.crash:441]:   Reason: Task wdt[0m
+[1;31m[E][esp32.crash:443]:   Crashed core: 1[0m
+[1;31m[E][esp32.crash:450]:   PC:  0x4FF23F02  (fault location)[0m
+[1;31m[E][esp32.crash:359]:   BT0: 0x4FF23F02  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT1: 0x4FF23EF0  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT2: 0x400BBED8  (stack scan)[0m
+[1;31m[E][esp32.crash:475]: Use: addr2line -pfiaC -e firmware.elf 0x4FF23F02 0x4FF23F02 0x4FF23EF0 0x400BBED8[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 3[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2128ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+E (8801) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (8801) task_wdt:  - loopTask (CPU 1)
+E (8801) task_wdt: Tasks currently running:
+E (8801) task_wdt: CPU 0: IDLE0
+E (8801) task_wdt: CPU 1: IDLE1
+E (8801) task_wdt: Aborting.
+E (8801) task_wdt: Print CPU 1 registers
+
+
+Core  1 register dump:
+MEPC    : 0x4ff23f02  RA      : 0x4ff23ef0  SP      : 0x4ff5b890  GP      : 0x4ff2f700  
+TP      : 0x4ff5b8e0  T0      : 0x00000000  T1      : 0x4ff23bb4  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x4ff37000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x00000000  A5      : 0x3ff06000  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000000  S3      : 0x4ff31000  
+S4      : 0x4ff37000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00000000  MTVEC   : 0x4ff37000  MCAUSE  : 0x00000000  MTVAL   : 0x400bbed8  
+MHARTID : 0x00000000  
+
+Stack memory:
+4ff5b890: 0x00000000 0x4ff37000 0x00000000 0x400bbed8 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8d0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000000 0x4ff5b30c 0x4ff5b30c 0x00000000
+4ff5b8f0: 0x00000000 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000158
+4ff5b910: 0x4ff5b810 0x00000000 0x4ff317e8 0x4ff5b1b4 0x4ff5b910 0x4ff317e0 0x00000019 0x00000000
+4ff5b930: 0x00000000 0x4ff5b910 0x00000000 0x00000000 0x4ff5b30c 0x454c4449 0x00000031 0x00000000
+4ff5b950: 0x00000000 0x00000001 0x4ff5b900 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b970: 0x4ff37de4 0x4ff37e4c 0x4ff37eb4 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+4ff5b990: 0x00000000 0x4000826a 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba50: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00020000 0x00000800 0xa5a5a5a5
+4ff5ba70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5ba90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bab0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bad0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5baf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: 0feca35f3
+
+Rebooting...
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4007b0a6
+Core1 Saved PC:0x4ff20664
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (33) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (34) boot: chip revision: v3.2
+I (34) boot.esp32p4: SPI Speed      : 80MHz
+I (35) boot.esp32p4: SPI Mode       : DIO
+I (37) boot.esp32p4: SPI Flash Size : 4MB
+I (41) boot: Partition Table:
+I (43) boot: ## Label            Usage          Type ST Offset   Length
+I (49) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (56) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (62) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (69) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (75) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (84) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=52be0h (338912) map
+I (135) esp_image: segment 1: paddr=00062c08 vaddr=30100000 size=001f4h (   500) load
+I (136) esp_image: segment 2: paddr=00062e04 vaddr=30100200 size=00048h (    72) load
+I (140) esp_image: segment 3: paddr=00062e54 vaddr=4ff20000 size=0d1c4h ( 53700) load
+I (155) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be9bch (780732) map
+I (260) esp_image: segment 5: paddr=0012e9e4 vaddr=4ff2d1c4 size=01cd0h (  7376) load
+I (262) esp_image: segment 6: paddr=001306bc vaddr=4ff2ef00 size=02718h ( 10008) load
+I (269) boot: Loaded app from partition at offset 0x10000
+[0;32m[I][logger:136]: Log initialized[0m
+[1;31m[E][esp32.crash:436]: *** CRASH DETECTED ON PREVIOUS BOOT ***[0m
+[1;31m[E][esp32.crash:441]:   Reason: Task wdt[0m
+[1;31m[E][esp32.crash:443]:   Crashed core: 1[0m
+[1;31m[E][esp32.crash:450]:   PC:  0x4FF23F02  (fault location)[0m
+[1;31m[E][esp32.crash:359]:   BT0: 0x4FF23F02  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT1: 0x4FF23EF0  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT2: 0x400BBED8  (stack scan)[0m
+[1;31m[E][esp32.crash:475]: Use: addr2line -pfiaC -e firmware.elf 0x4FF23F02 0x4FF23F02 0x4FF23EF0 0x400BBED8[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 4[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2127ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+E (15893) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (15893) task_wdt:  - loopTask (CPU 1)
+E (15893) task_wdt: Tasks currently running:
+E (15893) task_wdt: CPU 0: IDLE0
+E (15893) task_wdt: CPU 1: IDLE1
+E (15893) task_wdt: Aborting.
+E (15893) task_wdt: Print CPU 1 registers
+
+
+Core  1 register dump:
+MEPC    : 0x4ff23f02  RA      : 0x4ff23ef0  SP      : 0x4ff5b890  GP      : 0x4ff2f700  
+TP      : 0x4ff5b8e0  T0      : 0x00000000  T1      : 0x4ff23bb4  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x4ff37000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x00000000  A5      : 0x3ff06000  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000000  S3      : 0x4ff31000  
+S4      : 0x4ff37000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00000000  MTVEC   : 0x4ff37000  MCAUSE  : 0x00000000  MTVAL   : 0x400bbed8  
+MHARTID : 0x00000000  
+
+Stack memory:
+4ff5b890: 0x00000000 0x4ff37000 0x00000000 0x400bbed8 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8d0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000000 0x4ff5b30c 0x4ff5b30c 0x00000000
+4ff5b8f0: 0x00000000 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000158
+4ff5b910: 0x4ff5b810 0x00000000 0x4ff317e8 0x4ff5b1b4 0x4ff5b910 0x4ff317e0 0x00000019 0x00000000
+4ff5b930: 0x00000000 0x4ff5b910 0x00000000 0x00000000 0x4ff5b30c 0x454c4449 0x00000031 0x00000000
+4ff5b950: 0x00000000 0x00000001 0x4ff5b900 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b970: 0x4ff37de4 0x4ff37e4c 0x4ff37eb4 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+4ff5b990: 0x00000000 0x4000826a 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba50: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00020000 0x00000800 0xa5a5a5a5
+4ff5ba70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5ba90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bab0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bad0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5baf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bb90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bbf0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc10: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc30: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+4ff5bc70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: 0feca35f3
+
+Rebooting...
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4007b0a6
+Core1 Saved PC:0x4ff20664
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x14b4
+load:0x4ffac2c0,len:0xfb0
+load:0x4ffaefc0,len:0x36a8
+entry 0x4ffac2ca
+I (33) boot: ESP-IDF v5.5.6 2nd stage bootloader
+I (34) boot: chip revision: v3.2
+I (34) boot.esp32p4: SPI Speed      : 80MHz
+I (35) boot.esp32p4: SPI Mode       : DIO
+I (37) boot.esp32p4: SPI Flash Size : 4MB
+I (41) boot: Partition Table:
+I (43) boot: ## Label            Usage          Type ST Offset   Length
+I (49) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (56) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (62) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (69) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (75) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (84) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=52be0h (338912) map
+I (135) esp_image: segment 1: paddr=00062c08 vaddr=30100000 size=001f4h (   500) load
+I (136) esp_image: segment 2: paddr=00062e04 vaddr=30100200 size=00048h (    72) load
+I (140) esp_image: segment 3: paddr=00062e54 vaddr=4ff20000 size=0d1c4h ( 53700) load
+I (155) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=be9bch (780732) map
+I (260) esp_image: segment 5: paddr=0012e9e4 vaddr=4ff2d1c4 size=01cd0h (  7376) load
+I (262) esp_image: segment 6: paddr=001306bc vaddr=4ff2ef00 size=02718h ( 10008) load
+I (269) boot: Loaded app from partition at offset 0x10000
+[0;32m[I][logger:136]: Log initialized[0m
+[1;31m[E][esp32.crash:436]: *** CRASH DETECTED ON PREVIOUS BOOT ***[0m
+[1;31m[E][esp32.crash:441]:   Reason: Task wdt[0m
+[1;31m[E][esp32.crash:443]:   Crashed core: 1[0m
+[1;31m[E][esp32.crash:450]:   PC:  0x4FF23F02  (fault location)[0m
+[1;31m[E][esp32.crash:359]:   BT0: 0x4FF23F02  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT1: 0x4FF23EF0  (backtrace)[0m
+[1;31m[E][esp32.crash:359]:   BT2: 0x400BBED8  (stack scan)[0m
+[1;31m[E][esp32.crash:475]: Use: addr2line -pfiaC -e firmware.elf 0x4FF23F02 0x4FF23F02 0x4FF23EF0 0x400BBED8[0m
+[0;35m[C][safe_mode:201]: Unsuccessful boot attempts: 5[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;32m[I][app:073]: Running through setup()[0m
+[0;32m[I][i2c:205]: Performing bus recovery[0m
+[0;35m[C][component:164]: Setup esp32p4_camera took 84ms[0m
+[0;35m[C][wifi:690]: Starting[0m
+[0;36m[D][wifi:1457]: Starting scan[0m
+[0;35m[C][component:164]: Setup wifi took 2128ms[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+E (8801) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (8801) task_wdt:  - loopTask (CPU 1)
+E (8801) task_wdt: Tasks currently running:
+E (8801) task_wdt: CPU 0: IDLE0
+E (8801) task_wdt: CPU 1: IDLE1
+E (8801) task_wdt: Aborting.
+E (8801) task_wdt: Print CPU 1 registers
+
+
+Core  1 register dump:
+MEPC    : 0x4ff23f02  RA      : 0x4ff23ef0  SP      : 0x4ff5b890  GP      : 0x4ff2f700  
+TP      : 0x4ff5b8e0  T0      : 0x00000000  T1      : 0x4ff23bb4  T2      : 0x00000000  
+S0/FP   : 0x00000000  S1      : 0x4ff37000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x00000000  A5      : 0x3ff06000  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000000  S3      : 0x4ff31000  
+S4      : 0x4ff37000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00000000  MTVEC   : 0x4ff37000  MCAUSE  : 0x00000000  MTVAL   : 0x400bbed8  
+MHARTID : 0x00000000  
+
+Stack memory:
+4ff5b890: 0x00000000 0x4ff37000 0x00000000 0x400bbed8 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b8d0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000000 0x4ff5b30c 0x4ff5b30c 0x00000000
+4ff5b8f0: 0x00000000 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x00000158
+4ff5b910: 0x4ff5b810 0x00000000 0x4ff317e8 0x4ff5b1b4 0x4ff5b910 0x4ff317e0 0x00000019 0x00000000
+4ff5b930: 0x00000000 0x4ff5b910 0x00000000 0x00000000 0x4ff5b30c 0x454c4449 0x00000031 0x00000000
+4ff5b950: 0x00000000 0x00000001 0x4ff5b900 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b970: 0x4ff37de4 0x4ff37e4c 0x4ff37eb4 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+4ff5b990: 0x00000000 0x4000826a 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5b9f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+4ff5ba50: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00020000 0x00000800 0xa5a5a5a5
+4ff5ba70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5

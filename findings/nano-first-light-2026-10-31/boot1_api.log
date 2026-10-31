@@ -1,0 +1,5 @@
+INFO ESPHome 2026.10.0
+INFO Loaded validated config cache for waveshare-p4-nano.yaml, skipping validation.
+INFO Starting log output from p4-nano-camera.local using esphome API
+WARNING Can't connect to ESPHome API for p4-nano-camera.local: Timeout while resolving IP address for ['p4-nano-camera.local'] (ResolveTimeoutAPIError)
+INFO Trying to connect to p4-nano-camera.local in the background

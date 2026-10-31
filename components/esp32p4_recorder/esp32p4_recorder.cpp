@@ -79,11 +79,48 @@ static bool set_ctrl(int fd, uint32_t id, int32_t value) {
 /* ---------------- setup ---------------- */
 
 void ESP32P4Recorder::setup() {
+#ifdef YD_SD_BENCH_TEST
+  // Bench only: mount and write 4 MB before anything else, so the card path can be tested with no camera fitted.
+  if (this->mount_card_()) {
+    char path[48];
+    snprintf(path, sizeof(path), "%s/sdtest.bin", this->mount_point_);
+    auto *buf = static_cast<uint8_t *>(
+        heap_caps_aligned_alloc(64, CHUNK_SIZE, MALLOC_CAP_8BIT | MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL));
+    int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    int ok = 0, bad = 0;
+    int64_t t0 = esp_timer_get_time();
+    for (int i = 0; buf != nullptr && fd >= 0 && i < 64; i++) {
+      App.feed_wdt();
+      memset(buf, i, CHUNK_SIZE);
+      int64_t tw = esp_timer_get_time();
+      ssize_t w = write(fd, buf, CHUNK_SIZE);
+      if (i < 3 || w != static_cast<ssize_t>(CHUNK_SIZE))
+        ESP_LOGW(TAG, "SD bench: chunk %d took %lld ms", i, (long long) ((esp_timer_get_time() - tw) / 1000));
+      if (w == static_cast<ssize_t>(CHUNK_SIZE)) {
+        ok++;
+      } else {
+        if (bad++ < 3)
+          ESP_LOGE(TAG, "SD bench: chunk %d write returned %d: %s", i, (int) w, strerror(errno));
+      }
+    }
+    int rs = -2, rc = -2, rst = -2;
+    if (fd >= 0) {
+      rs = fsync(fd);
+      rc = close(fd);
+    }
+    struct stat st {};
+    rst = stat(path, &st);
+    ESP_LOGW(TAG, "SD bench: open fd %d, fsync %d, close %d, stat %d (%s)", fd, rs, rc, rst, strerror(errno));
+    ESP_LOGW(TAG, "SD bench: %d of 64 x 64 kB writes OK, %d failed, file %ld bytes, %lld ms", ok, bad, (long) st.st_size,
+             (long long) ((esp_timer_get_time() - t0) / 1000));
+    heap_caps_free(buf);
+  }
+#endif
   if (this->camera_->is_failed()) {
     this->mark_failed(LOG_STR("Camera is not running"));
     return;
   }
-  if (!this->mount_card_()) {
+  if (this->card_ == nullptr && !this->mount_card_()) {
     // No card, or an unreadable one: never format it, and leave the rest of the device running.
     this->mark_failed(LOG_STR("SD card mount failed"));
     return;
@@ -541,6 +578,9 @@ void ESP32P4Recorder::bounce_write_(size_t n) {
   while (done < n && this->fd_ >= 0) {
     ssize_t w = write(this->fd_, this->bounce_ + done, n - done);
     if (w <= 0) {
+      // Keep the first few causes: a count alone cannot tell a full card from a dead bus.
+      if (this->write_errors_.load() < 3)
+        ESP_LOGE(TAG, "Card write of %u bytes returned %d: %s", (unsigned) (n - done), (int) w, strerror(errno));
       this->write_errors_++;
       break;
     }

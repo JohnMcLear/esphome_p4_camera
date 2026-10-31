@@ -1,0 +1,28 @@
+INFO ESPHome 2026.10.0
+INFO Loaded validated config cache for waveshare-p4-nano.yaml, skipping validation.
+esptool v5.4.0
+Serial port /dev/ttyACM0:
+Connecting....
+Connected to ESP32-P4 on /dev/ttyACM0:
+Chip type:          ESP32-P4 (revision v3.2)
+Features:           Dual Core + LP Core, 400MHz
+Crystal frequency:  40MHz
+MAC:                80:f1:b2:d7:f5:0b
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+Auto-detected flash size: 16MB
+Flash will be erased from 0x00000000 to 0x00131fff...
+Compressed 1252048 bytes to 657323...
+Writing at 0x00010843 ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   2.5% 16.00kB/641.92kB [0s] Writing at 0x0001f766 ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━   5.0% 32.00kB/641.92kB [1s] Writing at 0x0002e8b9 ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━   7.5% 48.00kB/641.92kB [1s] Writing at 0x0003c1ca ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━  10.0% 64.00kB/641.92kB [2s] Writing at 0x0004bd92 ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━  12.5% 80.00kB/641.92kB [2s] Writing at 0x00054fb9 ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━  15.0% 96.00kB/641.92kB [3s] Writing at 0x0005d11f ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━  17.4% 112.00kB/641.92kB [3s] Writing at 0x00064d82 ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━  19.9% 128.00kB/641.92kB [3s] Writing at 0x0006acd0 ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━  22.4% 144.00kB/641.92kB [4s] Writing at 0x00070b3c ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━  24.9% 160.00kB/641.92kB [4s] Writing at 0x00076d23 ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━  27.4% 176.00kB/641.92kB [5s] Writing at 0x0007d898 ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━  29.9% 192.00kB/641.92kB [5s] Writing at 0x00086520 ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━  32.4% 208.00kB/641.92kB [5s] Writing at 0x0008defb ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━  34.9% 224.00kB/641.92kB [6s] Writing at 0x00093c38 ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━  37.4% 240.00kB/641.92kB [6s] Writing at 0x0009965b ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━  39.9% 256.00kB/641.92kB [7s] Writing at 0x0009f1ac ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━  42.4% 272.00kB/641.92kB [7s] Writing at 0x000a4fd5 ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━  44.9% 288.00kB/641.92kB [7s] Writing at 0x000aaa82 ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━  47.4% 304.00kB/641.92kB [8s] Writing at 0x000b0108 ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━  49.9% 320.00kB/641.92kB [8s] Writing at 0x000b54a7 ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━  52.3% 336.00kB/641.92kB [8s] Writing at 0x000bacc4 ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━  54.8% 352.00kB/641.92kB [9s] Writing at 0x000c2351 ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━  57.3% 368.00kB/641.92kB [9s] Writing at 0x000c9869 ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━  59.8% 384.00kB/641.92kB [10s] Writing at 0x000d06cd ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━  62.3% 400.00kB/641.92kB [10s] Writing at 0x000d6d38 ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━  64.8% 416.00kB/641.92kB [10s] Writing at 0x000de86d ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━  67.3% 432.00kB/641.92kB [11s] Writing at 0x000e4573 ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━  69.8% 448.00kB/641.92kB [11s] Writing at 0x000eb44c ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━  72.3% 464.00kB/641.92kB [12s] Writing at 0x000f1340 ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━  74.8% 480.00kB/641.92kB [12s] Writing at 0x000f7788 ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━  77.3% 496.00kB/641.92kB [12s] Writing at 0x000fdb1e ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━  79.8% 512.00kB/641.92kB [13s] Writing at 0x0010488e ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━  82.3% 528.00kB/641.92kB [13s] Writing at 0x0010ad7e ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━  84.7% 544.00kB/641.92kB [14s] Writing at 0x00110c75 ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━  87.2% 560.00kB/641.92kB [14s] Writing at 0x00116d27 ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━  89.7% 576.00kB/641.92kB [14s] Writing at 0x0011ca5e ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━  92.2% 592.00kB/641.92kB [15s] Writing at 0x00122b2b ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━  94.7% 608.00kB/641.92kB [15s] Writing at 0x001293db ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺  97.2% 624.00kB/641.92kB [15s] Writing at 0x00130897 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸  99.7% 640.00kB/641.92kB [16s] Writing at 0x00131ad0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.0% 641.92kB/641.92kB [16s] 
+Wrote 1252048 bytes (657323 compressed) at 0x00000000 in 16.5 seconds (608.4 kbit/s).
+Verifying written data...
+Hash of data verified.
+
+Hard resetting via RTS pin...
+INFO Successfully uploaded program.

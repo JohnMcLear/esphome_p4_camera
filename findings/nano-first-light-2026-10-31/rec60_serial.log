@@ -1,0 +1,11 @@
+[0;36m[D][api:323]: Accept 10.0.0.153[0m
+[0;33m[W][component:313]: api cleared Warning flag[0m
+[0;36m[D][api.connection:2816]: aioesphomeapi (10.0.0.153): connected[0m
+[0;32m[I][esp32p4_recorder:269]: Recording /sdcard/rec-0001.mp4[0m
+[0;36m[D][api.connection:2816]: aioesphomeapi (10.0.0.153): disconnected[0m
+[0;33m[W][component:290]: api set Warning flag: waiting for client connection[0m
+[0;32m[I][safe_mode:154]: Boot seems successful; resetting boot loop counter[0m
+[0;36m[D][preferences:254]: Writing 1 items: 0 cached, 1 written, 0 failed[0m
+[0;36m[D][esp32p4_camera:397]: Sent 7 images in last 60s; since boot 2043 captured, 57 drained, 0 JPEG errors[0m
+[0;32m[I][esp32p4_recorder:279]: Finished /sdcard/rec-0001.mp4: 1628 frames over 60.0 s (27.11 fps), 0 bytes; since boot 0 stalls, 420 write errors, 0 encode errors, 0 oversize frames, 0 audio overflows[0m
+[0;36m[D][main:600]: Clip saved: /sdcard/rec-0001.mp4[0m

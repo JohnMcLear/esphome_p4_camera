@@ -168,6 +168,8 @@ async def to_code(config):
     add_idf_sdkconfig_option("CONFIG_ESP_VIDEO_ENABLE_HW_H264_VIDEO_DEVICE", True)
     # Long file names, and FAT writes in 4 KB blocks.
     add_idf_sdkconfig_option("CONFIG_FATFS_LFN_HEAP", True)
+    # stat() and opendir() for clip numbering: ESPHome 2026.10 turns VFS directory support off by default.
+    add_idf_sdkconfig_option("CONFIG_VFS_SUPPORT_DIR", True)
     add_idf_sdkconfig_option("CONFIG_FATFS_VFS_FSTAT_BLKSIZE", 4096)
 
 

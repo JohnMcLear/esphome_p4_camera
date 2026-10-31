@@ -1,0 +1,569 @@
+15:07:29.822 PC: reset, mode=m0lc
+15:07:29.872 ESP-ROM:esp32p4-eco7-20260109
+15:07:29.872 Build:Jan  9 2026
+15:07:29.872 rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+15:07:29.872 SPI mode:DIO, clock div:1
+15:07:29.872 load:0x4ffb60d0,len:0x15e4
+15:07:29.872 load:0x4ffac2c0,len:0xe88
+15:07:29.872 load:0x4ffaefc0,len:0x3560
+15:07:29.872 entry 0x4ffac2ca
+15:07:29.872 I (25) boot: ESP-IDF v5.5.4 2nd stage bootloader
+15:07:29.872 I (26) boot: compile time Oct 31 2026 15:02:30
+15:07:29.973 I (26) boot: Multicore bootloader
+15:07:29.973 I (27) boot: chip revision: v3.2
+15:07:29.973 I (29) boot: efuse block revision: v1.2
+15:07:29.973 I (32) boot.esp32p4: SPI Speed      : 80MHz
+15:07:29.973 I (36) boot.esp32p4: SPI Mode       : DIO
+15:07:29.973 I (40) boot.esp32p4: SPI Flash Size : 16MB
+15:07:29.973 I (44) boot: Enabling RNG early entropy source...
+15:07:29.973 I (48) boot: Partition Table:
+15:07:29.973 I (51) boot: ## Label            Usage          Type ST Offset   Length
+15:07:29.973 I (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+15:07:29.973 I (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+15:07:29.973 I (70) boot:  2 factory          factory app      00 00 00010000 00177000
+15:07:29.973 I (78) boot: End of partition table
+15:07:29.973 I (80) esp_image: segment 0: paddr=00010020 vaddr=40080020 size=36418h (222232) map
+15:07:29.973 I (123) esp_image: segment 1: paddr=00046440 vaddr=30100000 size=00144h (   324) load
+15:07:30.073 I (124) esp_image: segment 2: paddr=0004658c vaddr=30100150 size=00048h (    72) load
+15:07:30.073 I (128) esp_image: segment 3: paddr=000465dc vaddr=4ff20000 size=09a3ch ( 39484) load
+15:07:30.073 I (142) esp_image: segment 4: paddr=00050020 vaddr=40000020 size=73320h (471840) map
+15:07:30.073 I (216) esp_image: segment 5: paddr=000c3348 vaddr=4ff29a3c size=0dbd8h ( 56280) load
+15:07:30.073 I (228) esp_image: segment 6: paddr=000d0f28 vaddr=4ff37680 size=035b0h ( 13744) load
+15:07:30.173 I (232) esp_image: segment 7: paddr=000d44e0 vaddr=50108000 size=000d8h (   216) load
+15:07:30.173 I (233) esp_image: segment 8: paddr=000d45c0 vaddr=50108180 size=0000ch (    12) load
+15:07:30.173 I (244) boot: Loaded app from partition at offset 0x10000
+15:07:30.173 I (245) boot: Disabling RNG early entropy source...
+15:07:30.173 I (262) hex_psram: vendor id    : 0x0d (AP)
+15:07:30.173 I (262) hex_psram: Latency      : 0x01 (Fixed)
+15:07:30.173 I (262) hex_psram: DriveStr.    : 0x00 (25 Ohm)
+15:07:30.173 I (263) hex_psram: dev id       : 0x03 (generation 4)
+15:07:30.173 I (268) hex_psram: density      : 0x07 (256 Mbit)
+15:07:30.173 I (272) hex_psram: good-die     : 0x06 (Pass)
+15:07:30.173 I (276) hex_psram: SRF          : 0x02 (Slow Refresh)
+15:07:30.173 I (281) hex_psram: BurstType    : 0x00 ( Wrap)
+15:07:30.173 I (285) hex_psram: BurstLen     : 0x03 (2048 Byte)
+15:07:30.173 I (290) hex_psram: BitMode      : 0x01 (X16 Mode)
+15:07:30.173 I (294) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)
+15:07:30.173 I (299) hex_psram: DriveStrength: 0x00 (1/1)
+15:07:30.173 I (303) MSPI Timing: Enter psram timing tuning
+15:07:30.374 I (466) esp_psram: Found 32MB PSRAM device
+15:07:30.374 I (467) esp_psram: Speed: 200MHz
+15:07:30.374 I (467) hex_psram: psram CS IO is dedicated
+15:07:30.374 I (468) cpu_start: Multicore app
+15:07:31.275 I (1354) esp_psram: SPI SRAM memory test OK
+15:07:31.275 I (1364) cpu_start: GPIO 38 and 37 are used as console UART I/O pins
+15:07:31.275 I (1364) cpu_start: Pro cpu start user code
+15:07:31.275 I (1364) cpu_start: cpu freq: 400000000 Hz
+15:07:31.275 I (1366) app_init: Application information:
+15:07:31.275 I (1370) app_init: Project name:     yondoor_sd_coexist
+15:07:31.275 I (1375) app_init: App version:      1
+15:07:31.275 I (1379) app_init: Compile time:     Oct 31 2026 15:02:23
+15:07:31.275 I (1384) app_init: ELF file SHA256:  28ac0767e...
+15:07:31.275 I (1388) app_init: ESP-IDF:          v5.5.4
+15:07:31.275 I (1392) efuse_init: Min chip rev:     v3.0
+15:07:31.275 I (1396) efuse_init: Max chip rev:     v3.99 
+15:07:31.275 I (1400) efuse_init: Chip rev:         v3.2
+15:07:31.275 I (1404) heap_init: Initializing. RAM available for dynamic allocation:
+15:07:31.275 I (1410) heap_init: At 4FF41990 len 00079630 (485 KiB): RETENT_RAM
+15:07:31.275 I (1416) heap_init: At 4FFBAFC0 len 00004BF0 (18 KiB): RAM
+15:07:31.275 I (1421) heap_init: At 501080D8 len 00000028 (0 KiB): RTCRAM
+15:07:31.376 I (1427) heap_init: At 5010818C len 00007E74 (31 KiB): RTCRAM
+15:07:31.376 I (1432) heap_init: At 30100198 len 00001E68 (7 KiB): TCM
+15:07:31.376 I (1438) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator
+15:07:31.376 I (1445) spi_flash: detected chip: gd
+15:07:31.376 I (1448) spi_flash: flash io: dio
+15:07:31.376 I (1451) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+15:07:31.376 I (1457) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+15:07:31.376 I (1464) main_task: Started on CPU0
+15:07:31.376 I (1488) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+15:07:31.376 I (1489) main_task: Calling app_main()
+15:07:31.376 YD ident: chip model=18 rev=v3.2 mac=80:f1:b2:d7:f5:0b
+15:07:31.376 YD: send 'm<N>[l][r]' within 5 s
+15:07:31.625 PC: sent m0lc
+15:07:31.977 YD MODE=0 ldo=1 rate=0 fast=0
+15:07:31.977 W (2124) ldo: The voltage value 0 is out of the recommended range [500, 2700]
+15:07:31.977 I (2124) yd: on-chip LDO4 for SD pads -> ESP_OK
+15:07:32.077 I (2165) yd: SDMMC slot0 mount (dummy_init=0) -> ESP_OK (40 ms)
+15:07:32.077 Name: SD
+15:07:32.077 Type: SDHC
+15:07:32.077 Speed: 20.00 MHz (limit: 20.00 MHz)
+15:07:32.077 Size: 29818MB
+15:07:32.077 CSD: ver=2, sector_size=512, capacity=61067264 read_bl_len=9
+15:07:32.077 SSR: bus_width=4
+15:07:32.077 I (2173) sdmmc_periph: host sampling edge is delayed by 25000 ps
+15:07:32.077 I (2179) yd: input delay phase 2 -> ESP_OK
+15:07:32.077 I (2183) yd: opts: 1bit=0 slow=0 crawl=0 phase=2
+15:07:32.077 I (2187) yd: SETUP_DONE mode=0 wifi_ok=0 sd_ok=1
+15:07:32.978 STAT t=1 sd_kBps=0 sd_errs=0 http_kBps=0 writer=0 heap_int=482659
+15:07:33.980 I (4088) yd: RAW_READ bytes=16777216 secs=1.90 rate=8639 kB/s errs=0
+15:07:33.980 PHASE_START
+15:07:33.980 I (4088) yd: card total=509 MB free=189 MB, test cap=94 MB, rate=unlimited
+15:07:33.980 STAT t=2 sd_kBps=0 sd_errs=0 http_kBps=0 writer=1 heap_int=475495
+15:07:34.080 E (4206) sdmmc_req: handle_idle_state_events unhandled: 00000100 00000000
+15:07:34.982 STAT t=3 sd_kBps=32 sd_errs=0 http_kBps=0 writer=1 heap_int=476031
+15:07:35.983 STAT t=4 sd_kBps=0 sd_errs=0 http_kBps=0 writer=1 heap_int=476031
+15:07:36.985 STAT t=5 sd_kBps=0 sd_errs=0 http_kBps=0 writer=1 heap_int=476011
+15:07:37.986 STAT t=6 sd_kBps=0 sd_errs=0 http_kBps=0 writer=1 heap_int=476023
+15:07:38.988 STAT t=7 sd_kBps=0 sd_errs=0 http_kBps=0 writer=1 heap_int=476031
+15:07:39.088 E (9206) sdmmc_cmd: sdmmc_send_cmd_num_of_written_blocks: sdmmc_send_app_cmd returned 0x107, failed to get number of written write blocks
+15:07:39.088 E (9207) sdmmc_cmd: sdmmc_write_sectors_dma: sdmmc_send_cmd_num_of_written_blocks returned 0x109
+15:07:39.088 E (9215) sdmmc_cmd: sdmmc_write_sectors_dma: sdmmc_send_cmd returned 0x109, status 0x800d00
+15:07:39.088 E (9224) diskio_sdmmc: sdmmc_write_blocks failed (0x109)
+15:07:39.088 E (9229) yd: fwrite short 2048
+15:07:39.188 E (9281) yd: fwrite short 0
+15:07:39.189 E (9331) yd: fwrite short 0
+15:07:39.289 E (9381) yd: fwrite short 0
+15:07:39.289 E (9431) yd: fwrite short 0
+15:07:39.389 E (9481) yd: fwrite short 0
+15:07:39.389 E (9531) yd: fwrite short 0
+15:07:39.489 E (9581) yd: fwrite short 0
+15:07:39.489 E (9631) yd: fwrite short 0
+15:07:39.589 E (9681) yd: fwrite short 0
+15:07:39.589 E (9731) yd: fwrite short 0
+15:07:39.689 E (9781) yd: fwrite short 0
+15:07:39.690 E (9831) yd: fwrite short 0
+15:07:39.790 E (9881) yd: fwrite short 0
+15:07:39.790 E (9931) yd: fwrite short 0
+15:07:39.890 E (9981) yd: fwrite short 0
+15:07:39.890 E (10031) yd: fwrite short 0
+15:07:39.990 E (10081) yd: fwrite short 0
+15:07:39.990 STAT t=8 sd_kBps=0 sd_errs=18 http_kBps=0 writer=1 heap_int=476011
+15:07:39.990 E (10131) yd: fwrite short 0
+15:07:40.090 E (10181) yd: fwrite short 0
+15:07:40.090 E (10231) yd: fwrite short 0
+15:07:40.190 E (10281) yd: fwrite short 0
+15:07:40.191 E (10331) yd: fwrite short 0
+15:07:40.291 E (10381) yd: fwrite short 0
+15:07:40.291 E (10431) yd: fwrite short 0
+15:07:40.391 E (10481) yd: fwrite short 0
+15:07:40.391 E (10531) yd: fwrite short 0
+15:07:40.491 E (10581) yd: fwrite short 0
+15:07:40.491 E (10631) yd: fwrite short 0
+15:07:40.591 E (10681) yd: fwrite short 0
+15:07:40.591 E (10731) yd: fwrite short 0
+15:07:40.691 E (10781) yd: fwrite short 0
+15:07:40.692 E (10831) yd: fwrite short 0
+15:07:40.792 E (10881) yd: fwrite short 0
+15:07:40.792 E (10931) yd: fwrite short 0
+15:07:40.892 E (10981) yd: fwrite short 0
+15:07:40.892 E (11031) yd: fwrite short 0
+15:07:40.992 E (11081) yd: fwrite short 0
+15:07:40.992 STAT t=9 sd_kBps=0 sd_errs=38 http_kBps=0 writer=1 heap_int=476003
+15:07:40.992 E (11131) yd: fwrite short 0
+15:07:41.092 E (11181) yd: fwrite short 0
+15:07:41.092 E (11231) yd: fwrite short 0
+15:07:41.192 E (11281) yd: fwrite short 0
+15:07:41.193 E (11331) yd: fwrite short 0
+15:07:41.293 E (11381) yd: fwrite short 0
+15:07:41.293 E (11431) yd: fwrite short 0
+15:07:41.393 E (11481) yd: fwrite short 0
+15:07:41.393 E (11531) yd: fwrite short 0
+15:07:41.493 E (11581) yd: fwrite short 0
+15:07:41.493 E (11631) yd: fwrite short 0
+15:07:41.593 E (11681) yd: fwrite short 0
+15:07:41.593 E (11731) yd: fwrite short 0
+15:07:41.693 E (11781) yd: fwrite short 0
+15:07:41.693 E (11831) yd: fwrite short 0
+15:07:41.794 E (11881) yd: fwrite short 0
+15:07:41.794 E (11931) yd: fwrite short 0
+15:07:41.894 E (11981) yd: fwrite short 0
+15:07:41.894 E (12031) yd: fwrite short 0
+15:07:41.994 E (12081) yd: fwrite short 0
+15:07:41.994 STAT t=10 sd_kBps=0 sd_errs=58 http_kBps=0 writer=1 heap_int=476011
+15:07:41.994 E (12131) yd: fwrite short 0
+15:07:42.094 E (12181) yd: fwrite short 0
+15:07:42.094 E (12231) yd: fwrite short 0
+15:07:42.194 E (12281) yd: fwrite short 0
+15:07:42.194 E (12331) yd: fwrite short 0
+15:07:42.295 E (12381) yd: fwrite short 0
+15:07:42.295 E (12431) yd: fwrite short 0
+15:07:42.395 E (12481) yd: fwrite short 0
+15:07:42.395 E (12531) yd: fwrite short 0
+15:07:42.495 E (12581) yd: fwrite short 0
+15:07:42.495 E (12631) yd: fwrite short 0
+15:07:42.595 E (12681) yd: fwrite short 0
+15:07:42.595 E (12731) yd: fwrite short 0
+15:07:42.697 E (12781) yd: fwrite short 0
+15:07:42.697 E (12831) yd: fwrite short 0
+15:07:42.797 E (12881) yd: fwrite short 0
+15:07:42.797 E (12931) yd: fwrite short 0
+15:07:42.897 E (12981) yd: fwrite short 0
+15:07:42.897 E (13031) yd: fwrite short 0
+15:07:42.997 E (13081) yd: fwrite short 0
+15:07:42.997 STAT t=11 sd_kBps=0 sd_errs=78 http_kBps=0 writer=1 heap_int=476011
+15:07:42.997 E (13131) yd: fwrite short 0
+15:07:43.097 E (13181) yd: fwrite short 0
+15:07:43.097 E (13231) yd: fwrite short 0
+15:07:43.198 E (13281) yd: fwrite short 0
+15:07:43.198 E (13331) yd: fwrite short 0
+15:07:43.298 E (13381) yd: fwrite short 0
+15:07:43.298 E (13431) yd: fwrite short 0
+15:07:43.398 E (13481) yd: fwrite short 0
+15:07:43.398 E (13531) yd: fwrite short 0
+15:07:43.498 E (13581) yd: fwrite short 0
+15:07:43.498 E (13631) yd: fwrite short 0
+15:07:43.598 E (13681) yd: fwrite short 0
+15:07:43.598 E (13731) yd: fwrite short 0
+15:07:43.699 E (13781) yd: fwrite short 0
+15:07:43.699 E (13831) yd: fwrite short 0
+15:07:43.799 E (13881) yd: fwrite short 0
+15:07:43.799 E (13931) yd: fwrite short 0
+15:07:43.899 E (13981) yd: fwrite short 0
+15:07:43.899 E (14031) yd: fwrite short 0
+15:07:43.999 E (14081) yd: fwrite short 0
+15:07:43.999 STAT t=12 sd_kBps=0 sd_errs=98 http_kBps=0 writer=1 heap_int=476011
+15:07:43.999 E (14131) yd: fwrite short 0
+15:07:44.099 E (14181) yd: fwrite short 0
+15:07:44.099 E (14231) yd: fwrite short 0
+15:07:44.200 E (14281) yd: fwrite short 0
+15:07:44.200 E (14331) yd: fwrite short 0
+15:07:44.300 E (14381) yd: fwrite short 0
+15:07:44.300 E (14431) yd: fwrite short 0
+15:07:44.400 E (14481) yd: fwrite short 0
+15:07:44.400 E (14531) yd: fwrite short 0
+15:07:44.500 E (14581) yd: fwrite short 0
+15:07:44.500 E (14631) yd: fwrite short 0
+15:07:44.600 E (14681) yd: fwrite short 0
+15:07:44.600 E (14731) yd: fwrite short 0
+15:07:44.701 E (14781) yd: fwrite short 0
+15:07:44.701 E (14831) yd: fwrite short 0
+15:07:44.801 E (14881) yd: fwrite short 0
+15:07:44.801 E (14931) yd: fwrite short 0
+15:07:44.901 E (14981) yd: fwrite short 0
+15:07:44.901 E (15031) yd: fwrite short 0
+15:07:45.001 E (15081) yd: fwrite short 0
+15:07:45.001 STAT t=13 sd_kBps=0 sd_errs=118 http_kBps=0 writer=1 heap_int=476011
+15:07:45.001 E (15131) yd: fwrite short 0
+15:07:45.102 E (15181) yd: fwrite short 0
+15:07:45.102 E (15231) yd: fwrite short 0
+15:07:45.202 E (15281) yd: fwrite short 0
+15:07:45.202 E (15331) yd: fwrite short 0
+15:07:45.302 E (15381) yd: fwrite short 0
+15:07:45.302 E (15431) yd: fwrite short 0
+15:07:45.402 E (15481) yd: fwrite short 0
+15:07:45.402 E (15531) yd: fwrite short 0
+15:07:45.502 E (15581) yd: fwrite short 0
+15:07:45.502 E (15631) yd: fwrite short 0
+15:07:45.603 E (15681) yd: fwrite short 0
+15:07:45.603 E (15731) yd: fwrite short 0
+15:07:45.703 E (15781) yd: fwrite short 0
+15:07:45.703 E (15831) yd: fwrite short 0
+15:07:45.803 E (15881) yd: fwrite short 0
+15:07:45.803 E (15931) yd: fwrite short 0
+15:07:45.903 E (15981) yd: fwrite short 0
+15:07:45.903 E (16031) yd: fwrite short 0
+15:07:46.004 E (16081) yd: fwrite short 0
+15:07:46.004 STAT t=14 sd_kBps=0 sd_errs=138 http_kBps=0 writer=1 heap_int=476011
+15:07:46.004 E (16131) yd: fwrite short 0
+15:07:46.104 E (16181) yd: fwrite short 0
+15:07:46.104 E (16231) yd: fwrite short 0
+15:07:46.204 E (16281) yd: fwrite short 0
+15:07:46.204 E (16331) yd: fwrite short 0
+15:07:46.304 E (16381) yd: fwrite short 0
+15:07:46.304 E (16431) yd: fwrite short 0
+15:07:46.404 E (16481) yd: fwrite short 0
+15:07:46.404 E (16531) yd: fwrite short 0
+15:07:46.505 E (16581) yd: fwrite short 0
+15:07:46.505 E (16631) yd: fwrite short 0
+15:07:46.605 E (16681) yd: fwrite short 0
+15:07:46.605 E (16731) yd: fwrite short 0
+15:07:46.705 E (16781) yd: fwrite short 0
+15:07:46.705 E (16831) yd: fwrite short 0
+15:07:46.805 E (16881) yd: fwrite short 0
+15:07:46.806 E (16931) yd: fwrite short 0
+15:07:46.906 E (16981) yd: fwrite short 0
+15:07:46.906 E (17031) yd: fwrite short 0
+15:07:47.007 E (17081) yd: fwrite short 0
+15:07:47.007 STAT t=15 sd_kBps=0 sd_errs=158 http_kBps=0 writer=1 heap_int=476011
+15:07:47.007 E (17131) yd: fwrite short 0
+15:07:47.107 E (17181) yd: fwrite short 0
+15:07:47.107 E (17231) yd: fwrite short 0
+15:07:47.207 E (17281) yd: fwrite short 0
+15:07:47.207 E (17331) yd: fwrite short 0
+15:07:47.307 E (17381) yd: fwrite short 0
+15:07:47.307 E (17431) yd: fwrite short 0
+15:07:47.407 E (17481) yd: fwrite short 0
+15:07:47.407 E (17531) yd: fwrite short 0
+15:07:47.508 E (17581) yd: fwrite short 0
+15:07:47.508 E (17631) yd: fwrite short 0
+15:07:47.608 E (17681) yd: fwrite short 0
+15:07:47.608 E (17731) yd: fwrite short 0
+15:07:47.708 E (17781) yd: fwrite short 0
+15:07:47.708 E (17831) yd: fwrite short 0
+15:07:47.808 E (17881) yd: fwrite short 0
+15:07:47.808 E (17931) yd: fwrite short 0
+15:07:47.908 E (17981) yd: fwrite short 0
+15:07:47.908 E (18031) yd: fwrite short 0
+15:07:48.009 E (18081) yd: fwrite short 0
+15:07:48.009 STAT t=16 sd_kBps=0 sd_errs=178 http_kBps=0 writer=1 heap_int=476011
+15:07:48.009 E (18131) yd: fwrite short 0
+15:07:48.109 E (18181) yd: fwrite short 0
+15:07:48.109 E (18231) yd: fwrite short 0
+15:07:48.209 E (18281) yd: fwrite short 0
+15:07:48.209 E (18331) yd: fwrite short 0
+15:07:48.309 E (18381) yd: fwrite short 0
+15:07:48.309 E (18431) yd: fwrite short 0
+15:07:48.409 E (18481) yd: fwrite short 0
+15:07:48.409 E (18531) yd: fwrite short 0
+15:07:48.510 E (18581) yd: fwrite short 0
+15:07:48.510 E (18631) yd: fwrite short 0
+15:07:48.610 E (18681) yd: fwrite short 0
+15:07:48.610 E (18731) yd: fwrite short 0
+15:07:48.710 E (18781) yd: fwrite short 0
+15:07:48.710 E (18831) yd: fwrite short 0
+15:07:48.810 E (18881) yd: fwrite short 0
+15:07:48.810 E (18931) yd: fwrite short 0
+15:07:48.911 E (18981) yd: fwrite short 0
+15:07:48.911 E (19031) yd: fwrite short 0
+15:07:49.011 E (19081) yd: fwrite short 0
+15:07:49.011 STAT t=17 sd_kBps=0 sd_errs=198 http_kBps=0 writer=1 heap_int=476011
+15:07:49.011 E (19131) yd: fwrite short 0
+15:07:49.111 E (19181) yd: fwrite short 0
+15:07:49.111 E (19231) yd: fwrite short 0
+15:07:49.211 E (19281) yd: fwrite short 0
+15:07:49.211 E (19331) yd: fwrite short 0
+15:07:49.312 E (19381) yd: fwrite short 0
+15:07:49.312 E (19431) yd: fwrite short 0
+15:07:49.412 E (19481) yd: fwrite short 0
+15:07:49.412 E (19531) yd: fwrite short 0
+15:07:49.512 E (19581) yd: fwrite short 0
+15:07:49.512 E (19631) yd: fwrite short 0
+15:07:49.612 E (19681) yd: fwrite short 0
+15:07:49.612 E (19731) yd: fwrite short 0
+15:07:49.713 E (19781) yd: fwrite short 0
+15:07:49.713 E (19831) yd: fwrite short 0
+15:07:49.813 E (19881) yd: fwrite short 0
+15:07:49.813 E (19931) yd: fwrite short 0
+15:07:49.813 E (19981) yd: fwrite short 0
+15:07:49.913 E (20031) yd: fwrite short 0
+15:07:49.913 E (20081) yd: fwrite short 0
+15:07:50.013 STAT t=18 sd_kBps=0 sd_errs=218 http_kBps=0 writer=1 heap_int=476011
+15:07:50.013 E (20131) yd: fwrite short 0
+15:07:50.013 E (20181) yd: fwrite short 0
+15:07:50.113 E (20231) yd: fwrite short 0
+15:07:50.113 E (20281) yd: fwrite short 0
+15:07:50.213 E (20331) yd: fwrite short 0
+15:07:50.213 E (20381) yd: fwrite short 0
+15:07:50.314 E (20431) yd: fwrite short 0
+15:07:50.314 E (20481) yd: fwrite short 0
+15:07:50.414 E (20531) yd: fwrite short 0
+15:07:50.414 E (20581) yd: fwrite short 0
+15:07:50.514 E (20631) yd: fwrite short 0
+15:07:50.514 E (20681) yd: fwrite short 0
+15:07:50.614 E (20731) yd: fwrite short 0
+15:07:50.614 E (20781) yd: fwrite short 0
+15:07:50.714 E (20831) yd: fwrite short 0
+15:07:50.714 E (20881) yd: fwrite short 0
+15:07:50.814 E (20931) yd: fwrite short 0
+15:07:50.815 E (20981) yd: fwrite short 0
+15:07:50.915 E (21031) yd: fwrite short 0
+15:07:50.915 E (21081) yd: fwrite short 0
+15:07:51.015 STAT t=19 sd_kBps=0 sd_errs=238 http_kBps=0 writer=1 heap_int=476011
+15:07:51.015 E (21131) yd: fwrite short 0
+15:07:51.015 E (21181) yd: fwrite short 0
+15:07:51.115 E (21231) yd: fwrite short 0
+15:07:51.115 E (21281) yd: fwrite short 0
+15:07:51.215 E (21331) yd: fwrite short 0
+15:07:51.215 E (21381) yd: fwrite short 0
+15:07:51.315 E (21431) yd: fwrite short 0
+15:07:51.315 E (21481) yd: fwrite short 0
+15:07:51.416 E (21531) yd: fwrite short 0
+15:07:51.416 E (21581) yd: fwrite short 0
+15:07:51.516 E (21631) yd: fwrite short 0
+15:07:51.516 E (21681) yd: fwrite short 0
+15:07:51.616 E (21731) yd: fwrite short 0
+15:07:51.616 E (21781) yd: fwrite short 0
+15:07:51.716 E (21831) yd: fwrite short 0
+15:07:51.716 E (21881) yd: fwrite short 0
+15:07:51.816 E (21931) yd: fwrite short 0
+15:07:51.816 E (21981) yd: fwrite short 0
+15:07:51.916 E (22031) yd: fwrite short 0
+15:07:51.917 E (22081) yd: fwrite short 0
+15:07:52.017 STAT t=20 sd_kBps=0 sd_errs=258 http_kBps=0 writer=1 heap_int=476011
+15:07:52.017 E (22131) yd: fwrite short 0
+15:07:52.017 E (22181) yd: fwrite short 0
+15:07:52.117 E (22231) yd: fwrite short 0
+15:07:52.117 E (22281) yd: fwrite short 0
+15:07:52.217 E (22331) yd: fwrite short 0
+15:07:52.217 E (22381) yd: fwrite short 0
+15:07:52.317 E (22431) yd: fwrite short 0
+15:07:52.317 E (22481) yd: fwrite short 0
+15:07:52.417 E (22531) yd: fwrite short 0
+15:07:52.417 E (22581) yd: fwrite short 0
+15:07:52.517 E (22631) yd: fwrite short 0
+15:07:52.518 E (22681) yd: fwrite short 0
+15:07:52.618 E (22731) yd: fwrite short 0
+15:07:52.618 E (22781) yd: fwrite short 0
+15:07:52.718 E (22831) yd: fwrite short 0
+15:07:52.718 E (22881) yd: fwrite short 0
+15:07:52.818 E (22931) yd: fwrite short 0
+15:07:52.818 E (22981) yd: fwrite short 0
+15:07:52.918 E (23031) yd: fwrite short 0
+15:07:52.918 E (23081) yd: fwrite short 0
+15:07:53.018 STAT t=21 sd_kBps=0 sd_errs=278 http_kBps=0 writer=1 heap_int=476011
+15:07:53.018 E (23131) yd: fwrite short 0
+15:07:53.018 E (23181) yd: fwrite short 0
+15:07:53.119 E (23231) yd: fwrite short 0
+15:07:53.119 E (23281) yd: fwrite short 0
+15:07:53.219 E (23331) yd: fwrite short 0
+15:07:53.219 E (23381) yd: fwrite short 0
+15:07:53.319 E (23431) yd: fwrite short 0
+15:07:53.319 E (23481) yd: fwrite short 0
+15:07:53.419 E (23531) yd: fwrite short 0
+15:07:53.419 E (23581) yd: fwrite short 0
+15:07:53.519 E (23631) yd: fwrite short 0
+15:07:53.519 E (23681) yd: fwrite short 0
+15:07:53.619 E (23731) yd: fwrite short 0
+15:07:53.620 E (23781) yd: fwrite short 0
+15:07:53.720 E (23831) yd: fwrite short 0
+15:07:53.720 E (23881) yd: fwrite short 0
+15:07:53.820 E (23931) yd: fwrite short 0
+15:07:53.820 E (23981) yd: fwrite short 0
+15:07:53.920 E (24031) yd: fwrite short 0
+15:07:53.920 E (24081) yd: fwrite short 0
+15:07:54.020 STAT t=22 sd_kBps=0 sd_errs=298 http_kBps=0 writer=1 heap_int=476011
+15:07:54.020 E (24131) yd: fwrite short 0
+15:07:54.020 E (24181) yd: fwrite short 0
+15:07:54.120 E (24231) yd: fwrite short 0
+15:07:54.120 E (24281) yd: fwrite short 0
+15:07:54.221 E (24331) yd: fwrite short 0
+15:07:54.221 E (24381) yd: fwrite short 0
+15:07:54.321 E (24431) yd: fwrite short 0
+15:07:54.321 E (24481) yd: fwrite short 0
+15:07:54.421 E (24531) yd: fwrite short 0
+15:07:54.421 E (24581) yd: fwrite short 0
+15:07:54.521 E (24631) yd: fwrite short 0
+15:07:54.521 E (24681) yd: fwrite short 0
+15:07:54.621 E (24731) yd: fwrite short 0
+15:07:54.621 E (24781) yd: fwrite short 0
+15:07:54.721 E (24831) yd: fwrite short 0
+15:07:54.722 E (24881) yd: fwrite short 0
+15:07:54.822 E (24931) yd: fwrite short 0
+15:07:54.822 E (24981) yd: fwrite short 0
+15:07:54.922 E (25031) yd: fwrite short 0
+15:07:54.922 E (25081) yd: fwrite short 0
+15:07:55.022 STAT t=23 sd_kBps=0 sd_errs=318 http_kBps=0 writer=1 heap_int=476011
+15:07:55.022 E (25131) yd: fwrite short 0
+15:07:55.022 E (25181) yd: fwrite short 0
+15:07:55.122 E (25231) yd: fwrite short 0
+15:07:55.122 E (25281) yd: fwrite short 0
+15:07:55.222 E (25331) yd: fwrite short 0
+15:07:55.222 E (25381) yd: fwrite short 0
+15:07:55.323 E (25431) yd: fwrite short 0
+15:07:55.323 E (25481) yd: fwrite short 0
+15:07:55.423 E (25531) yd: fwrite short 0
+15:07:55.423 E (25581) yd: fwrite short 0
+15:07:55.523 E (25631) yd: fwrite short 0
+15:07:55.523 E (25681) yd: fwrite short 0
+15:07:55.623 E (25731) yd: fwrite short 0
+15:07:55.623 E (25781) yd: fwrite short 0
+15:07:55.723 E (25831) yd: fwrite short 0
+15:07:55.723 E (25881) yd: fwrite short 0
+15:07:55.823 E (25931) yd: fwrite short 0
+15:07:55.823 E (25981) yd: fwrite short 0
+15:07:55.924 E (26031) yd: fwrite short 0
+15:07:55.924 E (26081) yd: fwrite short 0
+15:07:56.024 STAT t=24 sd_kBps=0 sd_errs=338 http_kBps=0 writer=1 heap_int=476011
+15:07:56.024 E (26131) yd: fwrite short 0
+15:07:56.024 E (26181) yd: fwrite short 0
+15:07:56.124 E (26231) yd: fwrite short 0
+15:07:56.124 E (26281) yd: fwrite short 0
+15:07:56.224 E (26331) yd: fwrite short 0
+15:07:56.224 E (26381) yd: fwrite short 0
+15:07:56.324 E (26431) yd: fwrite short 0
+15:07:56.324 E (26481) yd: fwrite short 0
+15:07:56.424 E (26531) yd: fwrite short 0
+15:07:56.425 E (26581) yd: fwrite short 0
+15:07:56.525 E (26631) yd: fwrite short 0
+15:07:56.525 E (26681) yd: fwrite short 0
+15:07:56.625 E (26731) yd: fwrite short 0
+15:07:56.625 E (26781) yd: fwrite short 0
+15:07:56.725 E (26831) yd: fwrite short 0
+15:07:56.725 E (26881) yd: fwrite short 0
+15:07:56.825 E (26931) yd: fwrite short 0
+15:07:56.825 E (26981) yd: fwrite short 0
+15:07:56.926 E (27031) yd: fwrite short 0
+15:07:56.926 E (27081) yd: fwrite short 0
+15:07:57.026 STAT t=25 sd_kBps=0 sd_errs=358 http_kBps=0 writer=1 heap_int=476011
+15:07:57.026 E (27131) yd: fwrite short 0
+15:07:57.026 E (27181) yd: fwrite short 0
+15:07:57.126 E (27231) yd: fwrite short 0
+15:07:57.126 E (27281) yd: fwrite short 0
+15:07:57.226 E (27331) yd: fwrite short 0
+15:07:57.226 E (27381) yd: fwrite short 0
+15:07:57.326 E (27431) yd: fwrite short 0
+15:07:57.326 E (27481) yd: fwrite short 0
+15:07:57.426 E (27531) yd: fwrite short 0
+15:07:57.427 E (27581) yd: fwrite short 0
+15:07:57.527 E (27631) yd: fwrite short 0
+15:07:57.527 E (27681) yd: fwrite short 0
+15:07:57.627 E (27731) yd: fwrite short 0
+15:07:57.627 E (27781) yd: fwrite short 0
+15:07:57.728 E (27831) yd: fwrite short 0
+15:07:57.728 E (27881) yd: fwrite short 0
+15:07:57.828 E (27931) yd: fwrite short 0
+15:07:57.828 E (27981) yd: fwrite short 0
+15:07:57.928 E (28031) yd: fwrite short 0
+15:07:57.928 E (28081) yd: fwrite short 0
+15:07:58.028 STAT t=26 sd_kBps=0 sd_errs=378 http_kBps=0 writer=1 heap_int=476011
+15:07:58.028 E (28131) yd: fwrite short 0
+15:07:58.028 E (28181) yd: fwrite short 0
+15:07:58.128 E (28231) yd: fwrite short 0
+15:07:58.128 E (28281) yd: fwrite short 0
+15:07:58.228 E (28331) yd: fwrite short 0
+15:07:58.229 E (28381) yd: fwrite short 0
+15:07:58.329 E (28431) yd: fwrite short 0
+15:07:58.329 E (28481) yd: fwrite short 0
+15:07:58.429 E (28531) yd: fwrite short 0
+15:07:58.429 E (28581) yd: fwrite short 0
+15:07:58.529 E (28631) yd: fwrite short 0
+15:07:58.529 E (28681) yd: fwrite short 0
+15:07:58.629 E (28731) yd: fwrite short 0
+15:07:58.629 E (28781) yd: fwrite short 0
+15:07:58.729 E (28831) yd: fwrite short 0
+15:07:58.730 E (28881) yd: fwrite short 0
+15:07:58.830 E (28931) yd: fwrite short 0
+15:07:58.830 E (28981) yd: fwrite short 0
+15:07:58.930 E (29031) yd: fwrite short 0
+15:07:58.930 E (29081) yd: fwrite short 0
+15:07:59.030 STAT t=27 sd_kBps=0 sd_errs=398 http_kBps=0 writer=1 heap_int=476011
+15:07:59.030 E (29131) yd: fwrite short 0
+15:07:59.030 E (29181) yd: fwrite short 0
+15:07:59.131 E (29231) yd: fwrite short 0
+15:07:59.131 E (29281) yd: fwrite short 0
+15:07:59.231 E (29331) yd: fwrite short 0
+15:07:59.231 E (29381) yd: fwrite short 0
+15:07:59.331 E (29431) yd: fwrite short 0
+15:07:59.331 E (29481) yd: fwrite short 0
+15:07:59.431 E (29531) yd: fwrite short 0
+15:07:59.431 E (29581) yd: fwrite short 0
+15:07:59.531 E (29631) yd: fwrite short 0
+15:07:59.531 E (29681) yd: fwrite short 0
+15:07:59.632 E (29731) yd: fwrite short 0
+15:07:59.632 E (29781) yd: fwrite short 0
+15:07:59.732 E (29831) yd: fwrite short 0
+15:07:59.732 E (29881) yd: fwrite short 0
+15:07:59.832 E (29931) yd: fwrite short 0
+15:07:59.832 E (29981) yd: fwrite short 0
+15:07:59.932 E (30031) yd: fwrite short 0
+15:07:59.932 E (30081) yd: fwrite short 0
+15:08:00.032 STAT t=28 sd_kBps=0 sd_errs=418 http_kBps=0 writer=1 heap_int=476011
+15:08:00.032 E (30131) yd: fwrite short 0
+15:08:00.032 E (30181) yd: fwrite short 0
+15:08:00.133 E (30231) yd: fwrite short 0
+15:08:00.133 E (30281) yd: fwrite short 0
+15:08:00.233 E (30331) yd: fwrite short 0
+15:08:00.233 E (30381) yd: fwrite short 0
+15:08:00.333 E (30431) yd: fwrite short 0
+15:08:00.333 E (30481) yd: fwrite short 0
+15:08:00.433 E (30531) yd: fwrite short 0
+15:08:00.433 E (30581) yd: fwrite short 0
+15:08:00.533 E (30631) yd: fwrite short 0
+15:08:00.533 E (30681) yd: fwrite short 0
+15:08:00.634 E (30731) yd: fwrite short 0
+15:08:00.634 E (30781) yd: fwrite short 0
+15:08:00.734 E (30831) yd: fwrite short 0
+15:08:00.734 E (30881) yd: fwrite short 0
+15:08:00.834 E (30931) yd: fwrite short 0
+15:08:00.834 E (30981) yd: fwrite short 0
+15:08:00.838 PC: done
