@@ -1,0 +1,649 @@
+ESP-ROM:esp32p4-eco7-20260109
+Build:Jan  9 2026
+rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x4ffb60d0,len:0x15c4
+load:0x4ffac2c0,len:0xe68
+load:0x4ffaefc0,len:0x35dc
+entry 0x4ffac2ca
+I (25) boot: ESP-IDF v5.5.4 2nd stage bootloader
+I (26) boot: Multicore bootloader
+I (27) boot: chip revision: v3.2
+I (27) boot: efuse block revision: v1.2
+I (28) boot.esp32p4: SPI Speed      : 80MHz
+I (32) boot.esp32p4: SPI Mode       : DIO
+I (36) boot.esp32p4: SPI Flash Size : 4MB
+I (39) boot: Enabling RNG early entropy source...
+I (44) boot: Partition Table:
+I (46) boot: ## Label            Usage          Type ST Offset   Length
+I (53) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (59) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (66) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (72) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (79) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (86) boot: End of partition table
+I (90) esp_image: segment 0: paddr=00010020 vaddr=400c0020 size=51f1ch (335644) map
+I (149) esp_image: segment 1: paddr=00061f44 vaddr=30100000 size=00144h (   324) load
+I (150) esp_image: segment 2: paddr=00062090 vaddr=30100150 size=00048h (    72) load
+I (154) esp_image: segment 3: paddr=000620e0 vaddr=4ff20000 size=0df38h ( 57144) load
+I (171) esp_image: segment 4: paddr=00070020 vaddr=40000020 size=bca64h (772708) map
+I (291) esp_image: segment 5: paddr=0012ca8c vaddr=4ff2df38 size=008cch (  2252) load
+I (293) esp_image: segment 6: paddr=0012d360 vaddr=4ff2e880 size=02f6ch ( 12140) load
+I (298) esp_image: segment 7: paddr=001302d4 vaddr=50108000 size=000d8h (   216) load
+I (307) boot: Loaded app from partition at offset 0x10000
+I (308) boot: Disabling RNG early entropy source...
+[I][logger:122]: Log initialized
+[C][safe_mode:189]: Unsuccessful boot attempts: 0
+[D][preferences:245]: Writing 1 items: 0 cached, 1 written, 0 failed
+[I][app:060]: Running through setup()
+[I][i2c.idf:205]: Performing bus recovery
+[C][component:209]: Setup esp32p4_camera took 152ms
+[C][wifi:649]: Starting
+[D][wifi:1325]: Starting scan
+[C][component:209]: Setup wifi took 2128ms
+[W][component:342]: api set Warning flag: waiting for client connection
+[D][esp32p4_recorder:648]: AAC encoder open, largest internal block now 83968 B
+[C][component:209]: Setup esp32p4_recorder took 59ms
+[I][app:117]: setup() finished successfully!
+[W][component:342]: wifi set Warning flag: scanning for networks
+[I][app:151]: ESPHome version 2026.7.0 compiled on 2026-11-14 16:55:19 +0000
+[I][app:158]: ESP32 Chip: ESP32-P4 rev3.2, 2 core(s)
+[C][logger:223]: Logger:
+  Max Level: DEBUG
+  Initial Level: DEBUG
+[C][logger:230]:   Log Baud Rate: 115200
+  Hardware UART: UART0
+[C][logger:239]:   Task Log Buffer Size: 768 bytes
+[C][logger:245]:   Level for 'esp-idf': WARN
+[C][i2c.idf:092]: I2C Bus:
+[C][i2c.idf:093]:   SDA Pin: GPIO7
+  SCL Pin: GPIO8
+  Frequency: 100000 Hz
+[C][i2c.idf:103]:   Recovery: bus successfully recovered
+[C][i2c.idf:113]: Results from bus scan:
+[C][i2c.idf:119]: Found device at address 0x18
+[C][i2c.idf:119]: Found device at address 0x36
+[C][switch.gpio:088]: GPIO Switch 'Speaker amp'
+  Restore Mode: always ON
+[C][switch.gpio:131]:   Pin: GPIO53
+[C][template.binary_sensor:016]: Template Binary Sensor 'Recording'
+[C][i2s_audio.microphone:053]: Microphone:
+  Pin: 23
+  PDM: NO
+  DC offset correction: NO
+[C][es8311:052]: ES8311 Audio Codec:
+  Use MCLK: YES
+  Use Microphone: NO
+  DAC Bits per Sample: 16
+  Sample Rate: 16000
+[C][psram:015]: PSRAM:
+[C][psram:018]:   Available: YES
+[C][psram:020]:   Size: 32768 KB
+[C][esp32p4_camera:538]: ESP32-P4 camera:
+  Sensor: MIPI-CSI
+  Capture: 1920x1080 YUV420, output 640x360 JPEG q40
+  Max interval: 100 ms, idle interval: 10000 ms
+  Stills: 1920x1080, q92, server port 8082
+[C][i2s_audio.speaker:043]: Speaker:
+  Pin: 9
+  Buffer duration: 500
+[C][i2s_audio.speaker:049]:   Timeout: 500 ms
+[C][i2s_audio.speaker.std:067]:   Communication format: std
+[C][i2s_audio.speaker.std:072]:   Slot bit width: 16
+[C][wifi:1553]: WiFi:
+  Local MAC: MAC
+  Connected: NO
+[C][esphome.ota:098]: Over-The-Air updates:
+  Address: p4-camera-r3.local:3232
+  Version: 2
+[C][safe_mode:058]: Safe Mode:
+  Successful after: 60s
+  Invoke after: 10 attempts
+  Duration: 300s
+[C][safe_mode:079]:   Bootloader rollback: support unknown
+[C][api:269]: Server:
+  Address: p4-camera-r3.local:6053
+  Listen backlog: 4
+  Max connections: 5
+[C][api:281]:   Noise encryption: NO
+[C][esp32p4_recorder:787]: ESP32-P4 recorder:
+  Mount point: /sdcard, file prefix: rec
+  SD slot 0, 4-bit, 10000 kHz, power LDO channel 4
+  H.264: 4000000 bit/s, QP 25-45, GOP 30, max 600 s
+[C][esp32p4_recorder:796]:   Audio: AAC-LC 16000 Hz mono, 32000 bit/s
+[C][esp32p4_recorder:801]:   Card: SB32G, 30436 MB
+[C][mdns:259]: mDNS:
+  Hostname: p4-camera-r3
+[C][esp32_camera_web_server:089]: ESP32 Camera Web Server:
+  Port: 8080
+[C][esp32_camera_web_server:094]:   Mode: stream
+[C][esp32_camera_web_server:089]: ESP32 Camera Web Server:
+  Port: 8081
+[C][esp32_camera_web_server:096]:   Mode: snapshot
+[D][wifi:1485]: Found networks:
+[I][wifi:1456]: - REDACTED (MAC) ▂▄▆█ Ch: 6 -38dB P:0
+[I][wifi:1456]: - REDACTED (MAC) ▂▄▆█ Ch: 1 -68dB P:0
+[I][wifi:1456]: - REDACTED (MAC) ▂▄▆█ Ch: 6 -70dB P:0
+[I][wifi:1456]: - REDACTED (MAC) ▂▄▆█ Ch: 6 -83dB P:0
+[D][wifi:1879]: Retry phase: INITIAL_CONNECT → SCAN_CONNECTING
+[I][wifi:1119]: Connecting to REDACTED (MAC) (priority 0, attempt 1/2 in phase SCAN_CONNECTING)...
+[W][component:473]: wifi took a long time for an operation (88 ms), max is 50 ms
+[W][wifi_esp32:852]: Disconnected ssid=REDACTED bssid=MAC reason='Association Failed'
+[W][wifi:1700]: Connecting to network failed (callback)
+[D][wifi:2059]: Failed REDACTED (MAC), priority 0 → 0
+[D][wifi:2130]: Retry attempt 2/2 in phase SCAN_CONNECTING
+[I][wifi:1119]: Connecting to REDACTED (MAC) (priority 0, attempt 2/2 in phase SCAN_CONNECTING)...
+[I][wifi:1597]: Connected
+[C][wifi:1259]:   IP Address: 10.0.0.157
+[C][wifi:1270]:   SSID: REDACTED
+  BSSID: MAC
+  Hostname: 'p4-camera-r3'
+  Signal strength: -40 dB ▂▄▆█
+  Channel: 6
+  Subnet: 255.0.0.0
+  Gateway: 10.0.0.253
+  DNS1: 10.0.0.253
+  DNS2: 0.0.0.0
+[W][component:473]: wifi took a long time for an operation (162 ms), max is 90 ms
+[D][api:253]: Accept 10.0.0.153
+[W][component:365]: api cleared Warning flag
+[D][api.connection:2526]: aioesphomeapi (10.0.0.153): connected
+[W][component:365]: wifi cleared Warning flag
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19751B 72ms (13.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19725B 96ms (10.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19874B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19853B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19689B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19687B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19730B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19800B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19831B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19787B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19807B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19899B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19843B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19925B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19729B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19818B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19909B 133ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19747B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19717B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19756B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19652B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19805B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19782B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19819B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19837B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19680B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19705B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19783B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19747B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19899B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19767B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19820B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19819B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19753B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19814B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19970B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19777B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19790B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19809B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19639B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19861B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20155B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19606B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19561B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19568B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19573B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19583B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19492B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19335B 147ms (6.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19432B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19708B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19692B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19565B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19558B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19646B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19656B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19691B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19674B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19620B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19768B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19694B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19472B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19697B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19700B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19579B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19474B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19510B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19465B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19721B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19680B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19523B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19715B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19612B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19749B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19551B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19700B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19709B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19654B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19928B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19702B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19735B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19868B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19567B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19663B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19779B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19764B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19840B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19724B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19714B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19531B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20404B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25070B 144ms (6.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22639B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19416B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19403B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19276B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19384B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19277B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19305B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19459B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19406B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19395B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19273B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19488B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19359B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19449B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19541B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19329B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19433B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19376B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19413B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19310B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19445B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19598B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19359B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19299B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19375B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19946B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24352B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24270B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24337B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24064B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24277B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24305B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24038B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24247B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24161B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24064B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24334B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24108B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20222B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20144B 137ms (7.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24892B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25070B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25076B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24885B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25134B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25033B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25177B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24966B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25037B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25028B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25012B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25187B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25074B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25176B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25208B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25031B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25114B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25163B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25130B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25118B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25100B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25171B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25377B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25150B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25051B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25199B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25127B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25158B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25308B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25307B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25135B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25249B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25111B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25259B 144ms (6.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24950B 105ms (9.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25125B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25088B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25090B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25173B 141ms (7.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25080B 107ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25077B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25154B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25011B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25218B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25026B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25252B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25032B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 25345B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24417B 141ms (7.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24335B 104ms (9.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24368B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24383B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24422B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24265B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24327B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24341B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24166B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24285B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24334B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24198B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24523B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24264B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24354B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24358B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24334B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24401B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24303B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24321B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24523B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24211B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24404B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24243B 136ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24215B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24477B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24398B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24335B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24207B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24439B 134ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24416B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24264B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24271B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24183B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24002B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24043B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24173B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24188B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23996B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24038B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24107B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24172B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24074B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24066B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24064B 133ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24132B 112ms (8.9fps)
+[I][safe_mode:142]: Boot seems successful; resetting boot loop counter
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24136B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24431B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24203B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24121B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24095B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24116B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24192B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24218B 133ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24300B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24162B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24015B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24340B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24078B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24100B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24296B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24168B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24237B 126ms (7.9fps)
+[I][esp32_camera_web_server:211][httpd]: STREAM: closed. Frames: 243
+[I][esp32p4_recorder:306]: Recording /sdcard/rec-0003.mp4
+[D][preferences:245]: Writing 1 items: 0 cached, 1 written, 0 failed
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24184B 83ms (12.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24214B 134ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24294B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24138B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24166B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24331B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23952B 170ms (5.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24123B 100ms (10.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24267B 98ms (10.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24272B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24247B 136ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24229B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24149B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24191B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24133B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24180B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24171B 172ms (5.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24050B 84ms (11.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24056B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24243B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24298B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24359B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24213B 143ms (7.0fps)
+[D][esp32p4_camera:439]: Sent 272 images in last 60s; since boot 2214 captured, 52 drained, 0 JPEG errors
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24124B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24343B 105ms (9.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24104B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24109B 179ms (5.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24217B 90ms (11.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24162B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24099B 110ms (9.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24226B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24193B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24117B 137ms (7.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24174B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24233B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24430B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24029B 163ms (6.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23399B 110ms (9.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23326B 84ms (11.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23466B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23369B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23403B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23417B 139ms (7.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23388B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23463B 106ms (9.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23546B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24253B 166ms (6.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24222B 97ms (10.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24211B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24222B 103ms (9.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24126B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24281B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20944B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19585B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 17667B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15226B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15402B 154ms (6.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15189B 101ms (9.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 14995B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15164B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15110B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 15215B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 17983B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 21743B 143ms (7.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24133B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24211B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24168B 163ms (6.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24256B 102ms (9.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24100B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24247B 106ms (9.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24082B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24133B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24216B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24131B 139ms (7.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24122B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24058B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24017B 176ms (5.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24103B 82ms (12.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24149B 134ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24303B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24042B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23959B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24234B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24046B 134ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23867B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23907B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24040B 155ms (6.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23857B 107ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24065B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23959B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23985B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23860B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24079B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23972B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24083B 137ms (7.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23926B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24014B 158ms (6.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24085B 95ms (10.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23933B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24053B 142ms (7.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23901B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24083B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23906B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23964B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23989B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23726B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24033B 168ms (6.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24105B 77ms (13.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24105B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23939B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23985B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24227B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23900B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24084B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23926B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23963B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23862B 186ms (5.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24141B 76ms (13.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23891B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23826B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23899B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24021B 111ms (9.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23883B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23958B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23949B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23949B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23929B 162ms (6.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23950B 87ms (11.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23926B 109ms (9.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23827B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23936B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24053B 110ms (9.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23775B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24040B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23904B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23290B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 21658B 153ms (6.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 21988B 98ms (10.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22505B 110ms (9.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22438B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22571B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22464B 130ms (7.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 22598B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23413B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 24120B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23663B 137ms (7.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23758B 161ms (6.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23881B 92ms (10.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23677B 109ms (9.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23662B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23631B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23904B 146ms (6.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23882B 104ms (9.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23900B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23862B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23712B 127ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23759B 150ms (6.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23910B 94ms (10.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23772B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23667B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23763B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23610B 171ms (5.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23692B 79ms (12.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23685B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23636B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23503B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23667B 194ms (5.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23553B 79ms (12.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23660B 103ms (9.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23654B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23634B 156ms (6.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23771B 92ms (10.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23705B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 23736B 134ms (7.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19211B 105ms (9.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19256B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19184B 167ms (6.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19109B 91ms (11.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19233B 109ms (9.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19118B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19275B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19241B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19306B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19252B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19310B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19353B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19371B 157ms (6.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19165B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19304B 93ms (10.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19381B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19310B 123ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19392B 135ms (7.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19396B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19410B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19256B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19167B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19599B 159ms (6.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19627B 97ms (10.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19761B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19931B 126ms (7.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19954B 119ms (8.4fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19881B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19985B 131ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19894B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19855B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19857B 116ms (8.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19887B 171ms (5.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19927B 91ms (11.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20091B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19773B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19909B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19968B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20051B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19787B 117ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19930B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20003B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19829B 159ms (6.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19980B 109ms (9.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19879B 110ms (9.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19914B 109ms (9.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19813B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19980B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19917B 128ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20001B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20000B 114ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19887B 115ms (8.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20003B 164ms (6.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19775B 113ms (8.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19938B 103ms (9.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19946B 112ms (8.9fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19921B 120ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19874B 132ms (7.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19722B 118ms (8.5fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19903B 124ms (8.1fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20032B 149ms (6.7fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20053B 97ms (10.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19914B 152ms (6.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19997B 94ms (10.6fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19971B 108ms (9.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19826B 129ms (7.8fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19905B 122ms (8.2fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19935B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19973B 125ms (8.0fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 20037B 121ms (8.3fps)
+[D][esp32_camera_web_server:200][httpd]: MJPG: 19751B 127ms (7.9fps)
+[I][esp32_camera_web_server:211][httpd]: STREAM: closed. Frames: 245
+[I][esp32p4_recorder:316]: Finished /sdcard/rec-0003.mp4: 1537 frames over 60.0 s (25.60 fps), 25920710 bytes; since boot 0 stalls, 0 write errors, 0 encode errors, 0 oversize frames, 0 audio overflows
+[D][main:601]: Clip saved: /sdcard/rec-0003.mp4
+[D][api.connection:2526]: aioesphomeapi (10.0.0.153): disconnected
+[W][component:342]: api set Warning flag: waiting for client connection
