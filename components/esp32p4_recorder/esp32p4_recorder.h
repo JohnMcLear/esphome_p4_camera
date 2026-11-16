@@ -89,6 +89,8 @@ class ESP32P4Recorder : public Component, public esp32p4_camera::FrameListener {
 
  protected:
   bool mount_card_();
+  static void mount_task(void *arg);
+  void finish_setup_();
   bool encoder_setup_();
   bool writer_setup_();
   bool open_clip_();
@@ -124,6 +126,11 @@ class ESP32P4Recorder : public Component, public esp32p4_camera::FrameListener {
   uint32_t max_duration_s_{600};
 
   sdmmc_card_t *card_{nullptr};
+  // The mount runs on its own task: a card that never answers must not hold up boot.
+  enum class Mount : uint8_t { NONE, RUNNING, OK, FAILED, DONE };
+  std::atomic<Mount> mount_state_{Mount::NONE};
+  uint32_t mount_started_ms_{0};
+  bool mount_overdue_{false};
   int enc_fd_{-1};
   uint8_t *enc_out_{nullptr};
 
@@ -199,6 +206,9 @@ class ESP32P4Recorder : public Component, public esp32p4_camera::FrameListener {
   std::atomic<uint32_t> stalls_{0};
   std::atomic<uint32_t> oversize_{0};
   std::atomic<uint32_t> write_errors_{0};
+  // Writer task only: failed card writes in a row, and whether this clip has given up on the card.
+  uint8_t write_error_run_{0};
+  bool clip_abandoned_{false};
   std::atomic<uint32_t> encode_errors_{0};
 
   CallbackManager<void(const std::string &)> start_callback_;

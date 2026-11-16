@@ -33,6 +33,8 @@ static constexpr size_t RING_SIZE = 4 * 1024 * 1024;
 static constexpr size_t CHUNK_SIZE = 64 * 1024;
 /// Commit the FAT size this often, so a power cut keeps the clip up to here.
 static constexpr int64_t FSYNC_INTERVAL_US = 5 * 1000000;
+static constexpr uint32_t MOUNT_WARN_MS = 10000;
+static constexpr uint8_t WRITE_ERROR_RUN_MAX = 8;
 static constexpr uint32_t FRAME_MAGIC = 0x52464459;  // a frame record in the ring
 static constexpr uint32_t SKIP_MAGIC = 0x50494b53;   // the rest of the ring is padding
 
@@ -120,11 +122,26 @@ void ESP32P4Recorder::setup() {
     this->mark_failed(LOG_STR("Camera is not running"));
     return;
   }
-  if (this->card_ == nullptr && !this->mount_card_()) {
-    // No card, or an unreadable one: never format it, and leave the rest of the device running.
-    this->mark_failed(LOG_STR("SD card mount failed"));
+  if (this->card_ != nullptr) {
+    this->finish_setup_();
     return;
   }
+  this->mount_started_ms_ = millis();
+  this->mount_state_ = Mount::RUNNING;
+  if (xTaskCreate(&ESP32P4Recorder::mount_task, "p4rec_mount", 6144, this, 5, nullptr) != pdPASS) {
+    this->mount_state_ = Mount::NONE;
+    this->mark_failed(LOG_STR("Mount task failed to start"));
+  }
+}
+
+void ESP32P4Recorder::mount_task(void *arg) {
+  auto *self = static_cast<ESP32P4Recorder *>(arg);
+  self->mount_state_ = self->mount_card_() ? Mount::OK : Mount::FAILED;
+  App.wake_loop_threadsafe();
+  vTaskDelete(nullptr);
+}
+
+void ESP32P4Recorder::finish_setup_() {
   if (!this->encoder_setup_()) {
     this->mark_failed(LOG_STR("H.264 encoder setup failed"));
     return;
@@ -299,6 +316,28 @@ void ESP32P4Recorder::stop() {
 bool ESP32P4Recorder::is_recording() const { return this->state_ != State::IDLE; }
 
 void ESP32P4Recorder::loop() {
+  switch (this->mount_state_.load()) {
+    case Mount::RUNNING:
+      if (!this->mount_overdue_ && millis() - this->mount_started_ms_ > MOUNT_WARN_MS) {
+        this->mount_overdue_ = true;
+        ESP_LOGE(TAG, "Card has not mounted after %u s: recorder unavailable", (unsigned) (MOUNT_WARN_MS / 1000));
+        this->status_set_error(LOG_STR("SD card not responding"));
+      }
+      return;
+    case Mount::FAILED:
+      // No card, or an unreadable one: never format it, and leave the rest of the device running.
+      this->mount_state_ = Mount::DONE;
+      this->mark_failed(LOG_STR("SD card mount failed"));
+      return;
+    case Mount::OK:
+      this->mount_state_ = Mount::DONE;
+      if (this->mount_overdue_)
+        this->status_clear_error();
+      this->finish_setup_();
+      return;
+    default:
+      break;
+  }
   // Counters, not states: a short clip can start and finish between two passes of the loop.
   const uint32_t started = this->clips_started_;
   if (started != this->reported_started_) {
@@ -440,6 +479,8 @@ bool ESP32P4Recorder::open_clip_() {
   fmp4_begin(this->mux_, &ESP32P4Recorder::mux_out, this, this->camera_->get_width(), this->camera_->get_height(),
              this->clip_audio_, this->sample_rate_, AAC_DELAY_SAMPLES, secs + 32);
   this->bounce_fill_ = 0;
+  this->write_error_run_ = 0;
+  this->clip_abandoned_ = false;
   this->last_sync_us_ = esp_timer_get_time();
   this->frames_ = 0;
   this->frame_bytes_ = 0;
@@ -574,6 +615,8 @@ void ESP32P4Recorder::finish_clip_() {
 }
 
 void ESP32P4Recorder::bounce_write_(size_t n) {
+  if (this->clip_abandoned_)
+    return;
   size_t done = 0;
   while (done < n && this->fd_ >= 0) {
     ssize_t w = write(this->fd_, this->bounce_ + done, n - done);
@@ -582,8 +625,15 @@ void ESP32P4Recorder::bounce_write_(size_t n) {
       if (this->write_errors_.load() < 3)
         ESP_LOGE(TAG, "Card write of %u bytes returned %d: %s", (unsigned) (n - done), (int) w, strerror(errno));
       this->write_errors_++;
-      break;
+      if (++this->write_error_run_ == WRITE_ERROR_RUN_MAX) {
+        // The card is not taking data: end the clip instead of retrying for its whole length.
+        ESP_LOGE(TAG, "%u card writes failed in a row, stopping the clip", (unsigned) WRITE_ERROR_RUN_MAX);
+        this->clip_abandoned_ = true;
+        this->stop_requested_ = true;
+      }
+      return;
     }
+    this->write_error_run_ = 0;
     done += w;
   }
   int64_t now = esp_timer_get_time();
@@ -611,6 +661,8 @@ void ESP32P4Recorder::mux_out(void *ctx, const void *data, size_t n) {
 
 void ESP32P4Recorder::mux_patch(void *ctx, uint64_t offset, const void *data, size_t n) {
   auto *self = static_cast<ESP32P4Recorder *>(ctx);
+  if (self->clip_abandoned_)
+    return;
   if (self->fd_ >= 0 && lseek(self->fd_, static_cast<off_t>(offset), SEEK_SET) == static_cast<off_t>(offset)) {
     if (write(self->fd_, data, n) != static_cast<ssize_t>(n))
       self->write_errors_++;
